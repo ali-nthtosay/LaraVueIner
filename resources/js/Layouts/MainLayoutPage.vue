@@ -8,6 +8,9 @@
             <Link href="/list">Listings</Link>
           </div>
           <div>
+            <div v-if="user" class="flex">
+              {{ user.name }}
+            </div>
             <Link href="/list/create" class="btn-primary">+ New Listing</Link>
           </div>
         </nav>
@@ -23,7 +26,10 @@
 
 <script setup>
 import { Link, usePage } from '@inertiajs/vue3';
+import { computed } from 'vue'
 const page = usePage();
+
+const user = computed(() => page.props.auth.user );
 
 </script>
 
