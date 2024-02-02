@@ -1,11 +1,6 @@
 <template>
     <MainLayoutPage>
-        <div>
-            <h1>Index</h1>
-        </div>
-        <div>
-            The Message is {{ message }}
-        </div>
+
     </MainLayoutPage>
 
 </template>
