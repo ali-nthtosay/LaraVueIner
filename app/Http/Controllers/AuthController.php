@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 class AuthController extends Controller
 {
     public function create(){
+        if(auth()->check()){
+            return redirect('/list');
+        }
         return inertia('Auth/Login');
 
     }
