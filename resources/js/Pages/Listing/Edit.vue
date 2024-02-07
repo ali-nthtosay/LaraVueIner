@@ -77,6 +77,6 @@
     code: props.listing.code,
     price: props.listing.price,
   })
-  const update = () => form.put(`/list/${props.listing.id}`)
+  const update = () => form.put(`/listing/${props.listing.id}`)
   </script>
   

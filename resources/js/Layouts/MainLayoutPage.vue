@@ -14,7 +14,7 @@
           <div class="hidden mr-4 lg:block">
             <ul class="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
               <li class="block p-1 font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                <Link href="/list" class="flex items-center">
+                <Link href="/listing" class="flex items-center">
                   Lists
                 </Link>
               </li>

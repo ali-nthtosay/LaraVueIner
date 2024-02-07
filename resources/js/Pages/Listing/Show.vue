@@ -8,9 +8,9 @@
     <div class="md:col-span-5 flex flex-col gap-4">
       <Box>
 
-        <Price :price="singleItem.price" class="text-2xl font-bold" />
-        <ListingSpace :listing="singleItem" class="text-lg" />
-        <ListingAddress :element="singleItem" class="text-gray-500" />
+        <Price :price="listing.price" class="text-2xl font-bold" />
+        <ListingSpace :listing="listing" class="text-lg" />
+        <ListingAddress :element="listing" class="text-gray-500" />
       </Box>
 
       <Box>
@@ -30,7 +30,7 @@ import Box from  '../../Components/UI/Box.vue'
 
 
     defineProps({
-        singleItem: Object
+        listing: Object
     })
     
 </script>

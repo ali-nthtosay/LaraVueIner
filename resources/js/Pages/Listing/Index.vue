@@ -4,19 +4,19 @@
   <div class="grid grid-cols-3 md:grid-cols-2 xl:grid-cols-3 gap-4 mx-4">
     <Box v-for="item in listings" :key="item.id" >
       <div>
-        <Link :href="`/list/${item.id}`">
+        <Link :href="`/listing/${item.id}`">
           <Price :price="item.price" class="text-2xl font-bold" />
           <ListingSpace :listing="item" class="text-lg" />
           <ListingAddress :element="item" class="text-gray-500" />
         </Link>
         <div>
           <button>
-            <Link :href="`/list/${item.id}/edit`">Edit</Link>
+            <Link :href="`/listing/${item.id}/edit`">Edit</Link>
           </button>
         </div>
         <div>
           <button>
-            <Link :href='`/list/${item.id}`' method="DELETE"> Delete</Link>
+            <Link :href='`/listing/${item.id}`' method="DELETE"> Delete</Link>
           </button>
         </div>
       </div>

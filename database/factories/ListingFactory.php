@@ -24,6 +24,7 @@ class ListingFactory extends Factory
             'code' => $this->faker->postcode,
             'street' => $this->faker->streetName,
             'price' => $this->faker->numberBetween(10000, 1000000),
+            'by_user_id'=> $this->faker->numberBetween(2, 4),
         ];
     }
 }

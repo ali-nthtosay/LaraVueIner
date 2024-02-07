@@ -82,5 +82,5 @@ const form = useForm({
     street_nr: null,
     price: null,
 });
-const create = () => form.post("/list");
+const create = () => form.post("/listing");
 </script>

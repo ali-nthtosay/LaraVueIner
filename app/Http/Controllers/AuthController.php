@@ -9,7 +9,7 @@ class AuthController extends Controller
 {
     public function create(){
         if(auth()->check()){
-            return redirect('/list');
+            return redirect('/listing');
         }
         return inertia('Auth/Login');
 
@@ -27,7 +27,7 @@ class AuthController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended('/list');
+        return redirect()->intended('/listing');
     }
 
     public function destroy(Request $request){
@@ -35,6 +35,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->intended('/list');
+        return redirect()->intended('/listing');
     }
 }
