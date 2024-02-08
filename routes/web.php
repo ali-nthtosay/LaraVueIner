@@ -24,7 +24,7 @@ Route::get('/',[IndexController::class,'index']);
 Route::get('/show',[IndexController::class, 'show'])->middleware('auth');
 
 
-Route::resource('listing', ListingController::class)->middleware('auth');
+Route::resource('listing', ListingController::class)->except(['destroy'])->middleware('auth');
 
 Route::get('login', [AuthController::class, 'create'])->name('login');
 Route::post('login', [AuthController::class, 'store'])->name('login.store');
@@ -36,9 +36,7 @@ Route::prefix('realtor')
   ->name('realtor.')
   ->middleware('auth')
   ->group(function () {
-    Route::resource('listing', RealtorListingController::class);
+    Route::resource('listing', RealtorListingController::class)
+      ->only(['index', 'destroy']);
   });
 
-// Route::any('{any}', function () {
-//     return redirect('/');
-// })->where('any', '.*');
