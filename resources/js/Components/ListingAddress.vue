@@ -1,13 +1,13 @@
 <template>
     <div>
         <span>
-            city: {{ element.city }}, {{ element.street }} , price : {{ element.price }}
+            city: {{ listing.city }}, {{ listing.street }} , price : {{ listing.price }}
         </span>
     </div>
 </template>
 
 <script setup>
 defineProps({
-    element: Object
+    listing: Object
 })
 </script>
