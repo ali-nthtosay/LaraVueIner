@@ -23,40 +23,34 @@
                   Account
                 </a>
               </li>
-              <li class="block p-1 font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                <a href="#" class="flex items-center">
-                  ----
-                </a>
-              </li>
-              <li class="block p-1 font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                <a href="#" class="flex items-center">
-                  ----
-                </a>
-              </li>
             </ul>
           </div>
-          <div class="flex items-center gap-x-1">
-            <Link href="/user-account/create"
+          <div  class="flex items-center gap-x-1">
+            <Link href="/realtor/listing"
               class="hidden px-4 py-2 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
               >
-              Sign Up</Link>
-            
-              <Link href="/login"
-              class="hidden select-none rounded-lg bg-gradient-to-tr from-gray-900 to-gray-800 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
+              {{ user.name }}</Link>
+            </div>
+           <div v-if="user" class="flex items-center gap-x-1">
+            <Link href="/logout" method="DELETE"
+              class="hidden px-4 py-2 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
               >
-              Login</Link>
+             logout</Link>
+            </div>
 
-          </div>
+              <div v-else class="flex items-center gap-x-1">
+            <Link href="/login"
+              class="hidden px-4 py-2 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
+              >
+              </Link>
+            </div> 
+          
         </div>
       </div>
     </nav>
   </div>
 </div>
-
-        <!-- Main Content -->
-        <main class="container mx-auto p-2">
             <slot></slot>
-        </main>
     </div>
 </template>
 

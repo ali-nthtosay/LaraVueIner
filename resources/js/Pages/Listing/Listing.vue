@@ -39,8 +39,8 @@
   import { Link } from '@inertiajs/vue3'
   const props = defineProps({listing: Object})
   import ListingAddress from '../../Components/ListingAddress.vue'
-import ListingSpace from '../../Components/ListingSpace.vue'
-import Price from '../../Components/Price.vue';
-import Box from  '../../Components/UI/Box.vue'
+  import ListingSpace from '../../Components/ListingSpace.vue'
+  import Price from '../../Components/Price.vue';
+  import Box from  '../../Components/UI/Box.vue'
   
   </script>
