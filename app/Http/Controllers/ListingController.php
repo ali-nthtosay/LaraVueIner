@@ -41,40 +41,40 @@ class ListingController extends Controller
    /**
     * Show the form for creating a new resource.
     */
-   public function create()
-   {
-       // $this->authorize('create', Listing::class);
-       return inertia('Listing/Create');
-   }
+//    public function create()
+//    {
+//        // $this->authorize('create', Listing::class);
+//        return inertia('Listing/Create');
+//    }
 
 
-   /**
-    * Store a newly created resource in storage.
-    */
-   public function store(Request $request)
-   {
+//    /**
+//     * Store a newly created resource in storage.
+//     */
+//    public function store(Request $request)
+//    {
 
 
-       // Auth::user()   -> its current user
-       //  $request->user()
+//        // Auth::user()   -> its current user
+//        //  $request->user()
 
 
       
-       $request->user()->listings()->create
-       // Listing::create
-       (
-           $request->validate([
-               'beds' => 'required|integer|min:0|max:20',
-               'baths' => 'required|integer|min:0|max:20',
-               'area' => 'required|integer|min:15|max:1500',
-               'city' => 'required',
-               'code' => 'required',
-               'street' => 'required',
-               'price' => 'required|integer|min:1|max:20000000',
-           ])
-       );
-       return redirect()->route('listing.index')->with('success', 'Listing was created!');
-   }
+//        $request->user()->listings()->create
+//        // Listing::create
+//        (
+//            $request->validate([
+//                'beds' => 'required|integer|min:0|max:20',
+//                'baths' => 'required|integer|min:0|max:20',
+//                'area' => 'required|integer|min:15|max:1500',
+//                'city' => 'required',
+//                'code' => 'required',
+//                'street' => 'required',
+//                'price' => 'required|integer|min:1|max:20000000',
+//            ])
+//        );
+//        return redirect()->route('listing.index')->with('success', 'Listing was created!');
+//    }
 
 
    /**
@@ -105,36 +105,36 @@ class ListingController extends Controller
    /**
     * Show the form for editing the specified resource.
     */
-   public function edit(listing $listing)
-   {
-       return inertia(
-           'Listing/Edit',
-           [
-               'listing' => Listing::find($listing)
-           ]
-           );
-   }
+//    public function edit(listing $listing)
+//    {
+//        return inertia(
+//            'Listing/Edit',
+//            [
+//                'listing' => Listing::find($listing)
+//            ]
+//            );
+//    }
 
 
-   /**
-    * Update the specified resource in storage.
-    */
-   public function update(Request $request, $listing )
-   {
-       // $listing = Listing::find($id);
-       $listing->update(
-           $request->validate([
-               'beds' => 'required|integer|min:0|max:20',
-               'baths' => 'required|integer|min:0|max:20',
-               'area' => 'required|integer|min:15|max:1500',
-               'city' => 'required',
-               'code' => 'required',
-               'street' => 'required',
-               'price' => 'required|integer|min:1|max:20000000',
-           ])
-       );
-       return redirect()->route('listing.index')->with('success', 'Listing was updated!');
-   }
+//    /**
+//     * Update the specified resource in storage.
+//     */
+//    public function update(Request $request, $listing )
+//    {
+//        // $listing = Listing::find($id);
+//        $listing->update(
+//            $request->validate([
+//                'beds' => 'required|integer|min:0|max:20',
+//                'baths' => 'required|integer|min:0|max:20',
+//                'area' => 'required|integer|min:15|max:1500',
+//                'city' => 'required',
+//                'code' => 'required',
+//                'street' => 'required',
+//                'price' => 'required|integer|min:1|max:20000000',
+//            ])
+//        );
+//        return redirect()->route('listing.index')->with('success', 'Listing was updated!');
+//    }
 
 
    /**

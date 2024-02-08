@@ -82,5 +82,7 @@ const form = useForm({
     street_nr: null,
     price: null,
 });
-const create = () => form.post("/listing");
+// const create = () => form.post("/listing");
+const create = () => form.post('realtor/listing')
+
 </script>

@@ -19,9 +19,7 @@
                 </Link>
               </li>
               <li class="block p-1 font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                <a href="#" class="flex items-center">
-                  Account
-                </a>
+                <Link href="/realtor/listing/create" class="btn-primary">+ New Listing</Link>
               </li>
             </ul>
           </div>

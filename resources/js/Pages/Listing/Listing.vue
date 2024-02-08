@@ -17,13 +17,13 @@
           />
         </Link>
       </div>
-      <div>
+      <!-- <div>
         <Link
         :href="`/listing/${listing.id}/edit`"
         >
           Edit
         </Link>
-      </div>
+      </div> -->
       <div>
         <Link
         :href='`/listing/${listing.id}`'
