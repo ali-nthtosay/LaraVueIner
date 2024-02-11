@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(
+                \App\Models\User::class, 'by_user_id'
+            )->constrained('users');
             $table->unsignedTinyInteger('beds');
             $table->unsignedTinyInteger('baths');
             $table->unsignedInteger('area');

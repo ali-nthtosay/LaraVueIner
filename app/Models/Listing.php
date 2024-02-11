@@ -20,6 +20,12 @@ class Listing extends Model
     protected $sortable = ['price', 'created_at'] ;
 
 
+    /// image
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(\App\Models\ListingImage::class);
+    }
    public function owner(): BelongsTo
    {
        return $this->belongsTo(
@@ -66,10 +72,4 @@ class Listing extends Model
     }
 
 
-    /// image
-
-    public function images(): HasMany
-    {
-        return $this->hasMany(\App\Models\ListingImage::class);
-    }
 }
