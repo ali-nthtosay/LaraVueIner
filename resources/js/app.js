@@ -2,6 +2,7 @@ import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 import '../css/app.css'
 import { InertiaProgress } from '@inertiajs/progress'
+import { ZiggyVue } from 'ziggy'
 
 InertiaProgress.init({
   delay: 0,
@@ -17,6 +18,7 @@ createInertiaApp({
   },
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
+    .use(ZiggyVue)
       .use(plugin)
       .mount(el)
   },
