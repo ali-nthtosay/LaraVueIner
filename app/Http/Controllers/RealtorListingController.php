@@ -36,6 +36,11 @@ class RealtorListingController extends Controller
         );
     }
 
+    public function create()
+    {
+        // $this->authorize('create', Listing::class);
+        return inertia('Realtor/Create');
+    }
     public function store(Listing $listing, Request $request)
     {
         dd('Works!');
