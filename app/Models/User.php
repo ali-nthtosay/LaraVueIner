@@ -65,4 +65,11 @@ class User extends Authenticatable
             'by_user_id'
         );
     }
+    public function favorite(){
+        return $this->belongsToMany(
+            \App\Models\Listing::class,
+            'likes'
+        );
+    }
+
 }

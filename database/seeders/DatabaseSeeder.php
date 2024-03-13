@@ -35,22 +35,22 @@ class DatabaseSeeder extends Seeder
             //     'is_admin' => false
             // ]);
 
-            // $amount = 3;
+            //   $amount = 3;
 
-            //  $user = function() use ($amount) {
-            //      for ($i = 0; $i < $amount; $i++) {
-            //          yield ['email' => "test$i@example.com"];
-            //      }
-            //  };
+            //    $user = function() use ($amount) {
+            //        for ($i = 0; $i < $amount; $i++) {
+            //      yield ['email' => "test$i@example.com"];
+            //           }
+            //   };
 
-            //  User::factory()->count($amount)
-            //      ->state(new Sequence(...iterator_to_array($user())))
-            //      ->create();
+            //   User::factory()->count($amount)
+            //       ->state(new Sequence(...iterator_to_array($user())))
+            //       ->create();
 
 
-            \App\Models\Listing::factory(5)
+             \App\Models\Listing::factory(5)
             //->for($user, 'owner')
-            ->create();
+             ->create();
 
     }
 }

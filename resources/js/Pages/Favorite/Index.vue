@@ -1,15 +1,14 @@
 <template>
+    <MainLayoutPage></MainLayoutPage>
     <Box>
-        <div>
-            <Link :href="`/listing/${listing.id}`">
-                <Box>
-                    <div v-if="listing.images.length > 0">
-                        <img :src="listing.images[0].src" alt="Image">
-                    </div>
-                <div v-else>no image</div>
-                </Box>
 
-                 <div class="flex items-center gap-1">
+        <div   v-for="listing in listings" :key="listing.id" :listing="listing"
+        class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"
+        >
+
+        <div >
+            <Link :href="`/listing/${listing.id}`">
+                <div class="flex items-center gap-1">
                     <Price :price="listing.price" class="text-2xl font-bold" />
                 </div>
             </Link>
@@ -20,18 +19,23 @@
                 <div>
                     <Button @click="toggleLike(listing.id)">
                         <Icon
-                            :name="listing.likes_count ? 'heart-fill' : 'heart'"
+                            name="heart-fill"
                         ></Icon>
                     </Button>
                 </div>
             </div>
         </div>
-    </Box>
-</template>
+ 
 
-<script setup>
-import { Link, usePage, router } from "@inertiajs/vue3";
-const props = defineProps({ listing: Object});
+
+        </div>
+        
+    </Box>
+  </template>
+  
+  <script setup>
+  import { Link, usePage, router } from "@inertiajs/vue3";
+  import Listing from '../Listing/Listing.vue'
 import ListingAddress from "../../Components/ListingAddress.vue";
 import ListingSpace from "../../Components/ListingSpace.vue";
 import Price from "../../Components/Price.vue";
@@ -39,23 +43,18 @@ import Box from "../../Components/UI/Box.vue";
 import Icon from "../../Components/UI/Icon.vue";
 import { ref, computed } from "vue";
 
-
-
-
-const page = usePage();
+  import MainLayoutPage from '../../Layouts/MainLayoutPage.vue';
+  defineProps({
+    listings: Object,
+  
+  })
+  const page = usePage();
 const user = computed(() => page.props.auth.user);
-var liked = ref(false);
+var liked = ref(true);
 function toggleLike(id) {
     if (liked) {
         liked = !liked;
-        router.post(`/listing/${id}/like`, {}, { preserveScroll: true });
-    } else {
-        liked = !liked;
         router.delete(`/listing/${id}/like`, {}, { preserveScroll: true });
-    }
+    } 
 }
-</script>
-
-<style>
-
-</style>
+  </script>

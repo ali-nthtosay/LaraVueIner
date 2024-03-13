@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Listing;
 use App\Models\User;
+use App\Models\Like;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,23 +20,42 @@ class ListingController extends Controller
    /**
     * Display a listing of the resource.
     */
-    public function index(Request $request)
-    {
+    public function index(User $user, Request $request)
+    {   
+        $listing = $user->listings()->withCount([
+            'likes' => function($q){
+                $q->where('by_user_id', auth()->id());
+            }
+        ])->withCasts(['likes_count' => 'boolean']) ;
+
+        $listing = Listing::withCount('likes')->withCasts(['likes_count' => 'boolean'])->get();
+        // dd($listing);
+
         $filters = $request->only([
             'priceFrom', 'priceTo', 'beds', 'baths', 'areaFrom', 'areaTo'
         ]);
-
+         $listing = Listing::mostRecent()
+         ->withCount('likes') ->withCasts(['likes_count' => 'boolean'])
+            ->filter($filters)
+            ->paginate(10)
+            ->withQueryString()->load('images') ;
         return inertia(
+            
             'Listing/Index',
+    
             [
+               //  dd($listing),
                 'filters' => $filters,
                 'listings' => Listing::mostRecent()
+                ->withCount('likes')->with('images')->withCasts(['likes_count' => 'boolean'])
                     ->filter($filters)
                     ->paginate(10)
-                    ->withQueryString()
+                    ->withQueryString(),
+                // 'listingImage' => $listinImage
             ]
         );
     }
+
 
 
    /**
@@ -83,17 +103,6 @@ class ListingController extends Controller
    public function show(Listing $listing)
    {
     $listing->load(['images']);
-
-
-       // $listing = Listing::find($id);
-       // if( Auth::user()->cannot('view', $listing)){
-       //     abort(403);
-       // }
-        //  dd($listing);
-        // $this->authorize('view', $listing);
-        // Auth::user()->can('view',$listing);
-        // $this->authorize('view', $listing);
-
        return inertia(
            'Listing/Show',
            [
@@ -102,6 +111,15 @@ class ListingController extends Controller
        );
    }
 
+//    public function shareImage(Listing $imageListing){
+//     $imageListing->load(['images']);
+//     return inertia(
+//         'Listing/Index',
+//         [
+//             'imageListing' => $imageListing
+//         ]
+//     );
+//    }
 
    /**
     * Show the form for editing the specified resource.
@@ -147,4 +165,7 @@ class ListingController extends Controller
 //        $listing->delete();
 //        return redirect()->back()->with('success','Listing was Deleted');
 //    }
+
+
+
 }

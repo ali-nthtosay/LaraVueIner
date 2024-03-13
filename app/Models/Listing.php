@@ -71,5 +71,10 @@ class Listing extends Model
         );
     }
 
+    Public function likes()
+    { 
+        return 
+        $this->belongsToMany(User::class, 'likes')->withTimestamps();
+     }
 
 }

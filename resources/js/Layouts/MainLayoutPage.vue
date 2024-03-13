@@ -28,6 +28,11 @@
               class="hidden px-4 py-2 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
               >
               {{ user.name }}</Link>
+              <Link :href="`/listing/${user.id}/favorite`"
+              
+              class="hidden px-4 py-2 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
+              > Favorite
+              </Link>
             </div>
            <div v-if="user" class="flex items-center gap-x-1">
             <Link href="/logout" method="DELETE"

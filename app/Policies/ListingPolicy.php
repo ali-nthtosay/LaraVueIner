@@ -36,7 +36,8 @@ class ListingPolicy
      */
     public function view(User $user, Listing $listing)
     {
-        return $user->id === $listing->by_user_id;
+        // return $user->id === $listing->by_user_id;
+        return true;
     }
 
     /**

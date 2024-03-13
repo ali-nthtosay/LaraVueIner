@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\UserAccountController;
 use Illuminate\Support\Facades\Route;
@@ -52,3 +54,7 @@ Route::prefix('realtor')
 
 
 
+  Route::post('/listing/{listing}/like',[LikeController::class, 'toggle']);
+  Route::delete('/listing/{listing}/like',[LikeController::class , 'checkLikes']);
+
+  Route::resource('listing/{listing}/favorite', FavoriteController::class)->only('index');
