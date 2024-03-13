@@ -1,7 +1,7 @@
 <template>
 
     <MainLayoutPage></MainLayoutPage>
-    <div class="flex flex-col-reverse md:grid md:grid-cols-12 gap-4 mx-4">
+    <div class="flex flex-col-reverse md:grid md:grid-cols-12 gap-4 mx-4 ">
     <Box class="md:col-span-7 flex items-center ">
             <div v-if="listing.images.length" class="grid grid-cols-2 gap-1">
                 <img
@@ -25,18 +25,8 @@
       <Box>
         <div>Weitere Informationen</div>
       </Box>
-      <Box>
-        <div v-if="user.id !== listing.by_user_id" class="mr-2">
-                <div>
-                    <Button @click="toggleLike(listing.id)">
-                        <Icon
-                            :name="listing.likes_count ? 'heart-fill' : 'heart'"
-                        ></Icon>
-                    </Button>
-                </div>
-            </div>
-      </Box>
- 
+
+
     </div>
     
     </div>
