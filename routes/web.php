@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LikeController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\UserAccountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RealtorListingController;
 use App\Http\Controllers\RealtorListingImageController;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +60,10 @@ Route::prefix('realtor')
   Route::delete('/listing/{listing}/like',[LikeController::class , 'checkLikes']);
 
   Route::resource('listing/{listing}/favorite', FavoriteController::class)->only('index');
+
+  Route::get('/chat', function(){
+    return Inertia::render('Chat/Container');
+  });
+  Route::get('/chat/rooms', [ChatController::class, 'rooms']);
+  Route::get('/chat/room/{roomId}/messages', [ChatController::class, 'messages']);
+  Route::post('/chat/room/{roomId}/message', [ChatController::class, 'newMessage']);

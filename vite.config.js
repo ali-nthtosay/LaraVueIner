@@ -3,6 +3,7 @@ import laravel from 'laravel-vite-plugin'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 
+require('dotenv').config();
 export default defineConfig({
     plugins: [
         laravel({

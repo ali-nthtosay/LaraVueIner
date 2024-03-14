@@ -48,9 +48,12 @@ class DatabaseSeeder extends Seeder
             //       ->create();
 
 
-             \App\Models\Listing::factory(5)
-            //->for($user, 'owner')
-             ->create();
+            //  \App\Models\Listing::factory(5)
+            // //->for($user, 'owner')
+            //  ->create();
 
+            $this->call(
+                ChatRoomSeeder::class
+            );
     }
 }
