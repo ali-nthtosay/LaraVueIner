@@ -3,6 +3,7 @@ import { createInertiaApp } from '@inertiajs/vue3'
 import '../css/app.css'
 import { InertiaProgress } from '@inertiajs/progress'
 import { ZiggyVue } from 'ziggy'
+import Toaster from "@meforma/vue-toaster";
 
 InertiaProgress.init({
   delay: 0,
@@ -19,6 +20,7 @@ createInertiaApp({
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
     .use(ZiggyVue)
+    .use(Toaster)
       .use(plugin)
       .mount(el)
   },
