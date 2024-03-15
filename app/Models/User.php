@@ -10,7 +10,6 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Hash;
-
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -71,5 +70,9 @@ class User extends Authenticatable
             'likes'
         );
     }
-
+    public function comments()
+    {
+        return $this->hasMany(\App\Models\Comment::class, 'comments'
+    );
+    }
 }

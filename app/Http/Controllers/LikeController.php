@@ -24,5 +24,4 @@ class LikeController extends Controller
         ->where('user_id' , auth()->id())->first();
          $like->delete();
     }
-
 }

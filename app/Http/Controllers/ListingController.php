@@ -35,23 +35,22 @@ class ListingController extends Controller
             'priceFrom', 'priceTo', 'beds', 'baths', 'areaFrom', 'areaTo'
         ]);
          $listing = Listing::mostRecent()
-         ->withCount('likes') ->withCasts(['likes_count' => 'boolean'])
+         ->withCount('likes')->with('likes')->withCasts(['likes_count' => 'boolean'])
             ->filter($filters)
-            ->paginate(10)
-            ->withQueryString()->load('images') ;
+            ->paginate(20)
+            ->withQueryString() ;
         return inertia(
             
             'Listing/Index',
     
             [
-               //  dd($listing),
                 'filters' => $filters,
                 'listings' => Listing::mostRecent()
                 ->withCount('likes')->with('images')->withCasts(['likes_count' => 'boolean'])
                     ->filter($filters)
                     ->paginate(10)
                     ->withQueryString(),
-                // 'listingImage' => $listinImage
+
             ]
         );
     }
@@ -102,7 +101,7 @@ class ListingController extends Controller
     */
    public function show(Listing $listing)
    {
-    $listing->load(['images']);
+    $listing->load(['images', 'owner']);
        return inertia(
            'Listing/Show',
            [
