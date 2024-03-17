@@ -25,11 +25,13 @@ class CommentController extends Controller
         ]);
     }
     public function store(Request $request){
+        $user = Auth::user();
+
          $comment = new Comment();
          $comment->comment = $request->comment;
-         $comment->user_id = Auth::id(); 
+         $comment->user_id = $user->id; 
         $comment->listing_id = $request->listing_id;
-        $comment->senderEmail = $request->senderEmail;
+        $comment->senderEmail = $user->email;
         $comment->senderTelephone = $request->senderTelephone;
          $comment->save();
          return back();

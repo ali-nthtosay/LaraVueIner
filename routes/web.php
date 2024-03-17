@@ -29,8 +29,8 @@ Route::get('/',[IndexController::class,'index']);
 Route::get('/show',[IndexController::class, 'show'])->middleware('auth');
 
 
-Route::resource('listing', ListingController::class)->only(['index', 'show'])
-->middleware('auth');
+Route::resource('listing', ListingController::class)->only(['index', 'show']);
+// ->middleware('auth');
 
 Route::get('login', [AuthController::class, 'create'])->name('login');
 Route::post('login', [AuthController::class, 'store'])->name('login.store');

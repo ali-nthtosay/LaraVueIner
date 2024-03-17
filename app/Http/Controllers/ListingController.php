@@ -101,7 +101,7 @@ class ListingController extends Controller
     */
    public function show(Listing $listing)
    {
-    $listing->load(['images', 'owner']);
+    $listing->load(['images', 'owner', 'comments']);
        return inertia(
            'Listing/Show',
            [
