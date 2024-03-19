@@ -41,20 +41,83 @@ class RealtorListingController extends Controller
         // $this->authorize('create', Listing::class);
         return inertia('Realtor/Create');
     }
-    public function store(Listing $listing, Request $request)
+    // public function store(Listing $listing, Request $request)
+    // {
+        
+    //     if ($request->hasFile('images')) {
+    //         foreach ($request->file('images') as $file) {
+    //             $path = $file->store('images', 'public');
+
+    //             $listing->images()->save(new ListingImage([
+    //                 'filename' => $path
+    //             ]));
+    //         }
+    //     }
+
+    //     return redirect()->back()->with('success', 'Images uploaded!');
+    // }
+    public function store(Request $request)
     {
-        dd('Works!');
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $file) {
-                $path = $file->store('images', 'public');
+        $user = Auth::user();
 
-                $listing->images()->save(new ListingImage([
-                    'filename' => $path
-                ]));
-            }
-        }
+    
+        // Create a new instance of Listing
+        $listing = new Listing();
+    
+        // Set the properties of the listing
+        $listing->beds = $request->beds;
+        $listing->baths = $request->baths;
+        $listing->area = $request->area;
+        $listing->city = $request->city;
+        $listing->code = $request->code;
+        $listing->street = $request->street;
+        $listing->price = $request->price;
+        $listing->by_user_id = $user->id;
+        // Save the listing
+        $listing->save();
+    
+        // Associate the listing with the user
+        $user->listings()->save($listing);
+    
+        // Redirect the user to the desired route with a success message
+        return redirect()->route('realtor.listing.index')
+                         ->with('success', 'Listing was created!');
+    }
 
-        return redirect()->back()->with('success', 'Images uploaded!');
+    public function edit(Listing $listing)
+    {
+        return inertia(
+            'Realtor/Edit',
+            [
+                'listing' => $listing
+            ]
+        );
+    }
+
+    public function update(Request $request, Listing $listing)
+    {
+        $listing->update(
+            $request->validate([
+                'beds' => 'required|integer|min:0|max:20',
+                'baths' => 'required|integer|min:0|max:20',
+                'area' => 'required|integer|min:15|max:1500',
+                'city' => 'required',
+                'code' => 'required',
+                'street' => 'required',
+                'price' => 'required|integer|min:1|max:20000000',
+            ])
+        );
+
+        return redirect()->route('realtor.listing.index')
+            ->with('success', 'Listing was changed!');
+    }
+
+    public function destroy(Listing $listing)
+    {
+        $listing->deleteOrFail();
+
+        return redirect()->back()
+            ->with('success', 'Listing was deleted!');
     }
 }
 

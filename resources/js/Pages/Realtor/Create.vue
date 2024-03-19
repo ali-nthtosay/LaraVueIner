@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="create">
+    <form @submit.prevent="form.post(route('realtor.listing.store'))">
 
         <div class="grid grid-cols-6 gap-4 my-3 mx-4">
             <div class="col-span-2">
@@ -82,7 +82,6 @@ const form = useForm({
     street_nr: null,
     price: null,
 });
-// const create = () => form.post("/listing");
-const create = () => form.post('realtor/listing')
+const create = () => form.post(route('realtor.listing.store'))
 
 </script>

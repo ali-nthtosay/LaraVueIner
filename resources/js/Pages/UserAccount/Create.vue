@@ -1,148 +1,7 @@
-<!-- <template>
-    <div class="container">
-      <div class="login-box">
-        <div class="header-img">
-          <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
-        </div>
-        <div class="header-text">
-          <p>Login</p>
-        </div>
-        <div class="input-group">
-          <input type="text" class="input-field" id="username" required>
-          <label for="username">Username</label>
-        </div>
-        <div class="input-group">
-          <input type="password" class="input-field" id="password" required>
-          <label for="password">Password</label>
-        </div>
-        <div class="forgot-pass">
-          <a href="#">Forgot password?</a>
-        </div>
-        <div class="input-group">
-          <button class="input-submit">Login <i class="bx bx-log-in"></i></button>
-        </div>
-      </div>
-    </div>
-  </template>
-  
-  <style scoped>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-  
-    body {
-      background: aqua;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-  
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-  
-    .login-box {
-      position: relative;
-      width: 370px;
-      height: 450px;
-      background: rgb(0, 0, 0, 0.83);
-      color: #fff;
-      padding: 80px 30px 25px 30px;
-      border-radius: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-  
-    .header-img {
-      position: absolute;
-      top: 0%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  
-    .header-img img {
-      width: 100px;
-    }
-  
-    .header-text {
-      text-align: center;
-      font-size: 24px;
-      font-weight: 500;
-      margin-bottom: 20px;
-    }
-  
-    .input-group {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-    }
-  
-    .input-field {
-      height: 40px;
-      background: transparent;
-      color: #fff;
-      border: 0;
-      border-bottom: 1px solid #fff;
-      margin: 15px 0;
-      padding: 0 15px;
-      outline: none;
-    }
-  
-    .input-field:focus, .input-field:valid {
-      border-bottom: 2px solid #d1e710;
-    }
-  
-    .input-group label {
-      position: absolute;
-      top: 23px;
-      left: 3px;
-      transition: .3s;
-    }
-  
-    .input-field:focus ~ label, .input-field:valid ~ label {
-      top: 5px;
-      font-size: 12px;
-      color: #d1e710;
-    }
-  
-    .forgot-pass {
-      text-align: right;
-      margin-bottom: 10px;
-    }
-  
-    .forgot-pass a {
-      color: #e9f76a;
-      font-size: 12px;
-    }
-  
-    .input-submit {
-      height: 40px;
-      border-radius: 30px;
-      border: none;
-      background: #d1e710;
-      margin-top: 20px;
-      cursor: pointer;
-      transition: .4s ease-out;
-    }
-  
-    .input-submit:hover {
-      box-shadow: 0 1px 10px rgb(254, 201, 26, 0.5);
-    }
-  </style>
-   -->
+
 
    <template>
-
+<!-- 
 <div class="h-screen flex justify-center items-center pb-60">
     <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
         <form class="space-y-6" action="#">
@@ -170,10 +29,10 @@
             </div>
         </form>
     </div>
-</div>
+</div> -->
 
 
-    <!-- <form @submit.prevent="register">
+     <form @submit.prevent="register">
       <div class="w-1/2 mx-auto">
         <div>
           <label for="name" class="label">Your Name</label>
@@ -227,7 +86,7 @@
         </button>
       </div>
     </div>
-  </form> -->
+  </form> 
 </template>
 
 <script setup>
@@ -238,5 +97,6 @@ const form = useForm({
   password: null,
   password_confirmation: null,
 })
-const register = () => form.post('/user-account')
+const register = () => form.post('/user-account', 
+)
 </script>

@@ -18,17 +18,12 @@
           <div
             class="flex items-center gap-1 text-gray-600 dark:text-gray-300"
           >
-            <a
-              class="btn-outline text-xs font-medium"
-              :href="route('listing.show', { listing: listing.id })"
-              target="_blank"
-            >Preview</a>
-            <Link
-              class="btn-outline text-xs font-medium"
-              :href="route('realtor.listing.edit', { listing: listing.id })"
-            >
-              Edit
-            </Link>
+          <a
+            class="btn-outline text-xs font-medium" 
+            :href="route('listing.show', { listing: listing.id })"
+            target="_blank"
+          >Preview</a>
+          <Link class="btn-outline text-xs font-medium" :href="route('realtor.listing.edit', { listing: listing.id })">Edit</Link>
 
             <Link
               v-if="!listing.deleted_at"

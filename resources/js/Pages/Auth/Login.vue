@@ -54,5 +54,5 @@ const form = useForm({
     email: null,
     password: null,
 });
-const login = () => form.post("/login");
+const login = () => form.post(route('login.store'));
 </script>
