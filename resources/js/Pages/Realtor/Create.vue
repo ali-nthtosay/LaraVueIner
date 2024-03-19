@@ -1,4 +1,8 @@
 <template>
+
+
+
+
     <form @submit.prevent="form.post(route('realtor.listing.store'))">
 
         <div class="grid grid-cols-6 gap-4 my-3 mx-4">
