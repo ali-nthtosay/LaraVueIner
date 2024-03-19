@@ -9,7 +9,7 @@
         <div >
             <Link :href="`/listing/${listing.id}`">
                 <div class="flex items-center gap-1">
-                    <preis :preis="listing.preis" class="text-2xl font-bold" />
+                    <Preis :preis="listing.preis" class="text-2xl font-bold" />
                 </div>
             </Link>
 
@@ -38,7 +38,7 @@
   import Listing from '../Listing/Listing.vue'
 import ListingAddress from "../../Components/ListingAddress.vue";
 import ListingSpace from "../../Components/ListingSpace.vue";
-import preis from "../../Components/preis.vue";
+import Preis from "../../Components/Preis.vue";
 import Box from "../../Components/UI/Box.vue";
 import Icon from "../../Components/UI/Icon.vue";
 import { ref, computed } from "vue";

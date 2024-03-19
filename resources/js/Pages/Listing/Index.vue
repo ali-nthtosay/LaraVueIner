@@ -32,7 +32,7 @@
         </div>
 
         <div class="p-5">
-            <preis :preis="listing.preis" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" />
+            <Preis :preis="listing.preis" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" />
       <ListingAddress :listing="listing" class="mb-3 font-normal text-gray-700 dark:text-gray-400" />
         <ListingSpace :listing="listing" class="mb-3 font-normal text-gray-400 dark:text-gray-300" />
 
@@ -56,7 +56,7 @@ import Filters from './Filters.vue'
 import MainLayoutPage from '../../Layouts/MainLayoutPage.vue';
 import ListingAddress from "../../Components/ListingAddress.vue";
 import ListingSpace from "../../Components/ListingSpace.vue";
-import preis from "../../Components/preis.vue";
+import Preis from "../../Components/Preis.vue";
 defineProps({
   listings: Object,
   filters: Object,

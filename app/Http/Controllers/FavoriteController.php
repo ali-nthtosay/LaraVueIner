@@ -9,9 +9,13 @@ use Illuminate\Http\Request;
 
 class FavoriteController extends Controller
 {
+    public function __construct(){
+        $this->authorizeResource(Listing::class, 'listing');
+   }
     public function index(Listing $listing){
+        
         $lists = auth()->user()->favorite;
-        // dd($likeList) ;
+
         return inertia('Favorite/Index', [
             'listings' => $lists , 
             

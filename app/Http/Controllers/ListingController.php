@@ -29,7 +29,6 @@ class ListingController extends Controller
         ])->withCasts(['likes_count' => 'boolean']) ;
 
         $listing = Listing::withCount('likes')->withCasts(['likes_count' => 'boolean'])->get();
-        // dd($listing);
 
         $filters = $request->only([
             'preisAb', 'preisBis', 'zimmer', 'badezimmer', 'flaecheVon', 'flaecheBis'
@@ -39,6 +38,7 @@ class ListingController extends Controller
             ->filter($filters)
             ->paginate(20)
             ->withQueryString() ;
+
         return inertia(
             
             'Listing/Index',
@@ -61,6 +61,9 @@ class ListingController extends Controller
     */
    public function show(Listing $listing)
    {
+    if(auth()->user()->id !== $listing->by_user_id) {
+        $listing->increment('count_view');
+    }    
     $listing->load(['images', 'owner', 'comments']);
        return inertia(
            'Listing/Show',

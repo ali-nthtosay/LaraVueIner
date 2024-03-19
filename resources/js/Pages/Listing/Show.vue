@@ -17,32 +17,44 @@
         </Box>
         <div class="md:col-span-5 flex flex-col gap-4">
             <Box>
-                <preis :preis="listing.preis" class="text-2xl font-bold" />
+                <Preis :preis="listing.preis" class="text-2xl font-bold" />
                 <ListingSpace :listing="listing" class="text-lg" />
                 <ListingAddress :listing="listing" class="text-gray-500" />
             </Box>
 
             <Box>
                 <div>Weitere Informationen</div>
+                <div>
+                    {{ listing.count_view }}
+                </div>
             </Box>
         </div>
     </div>
-    <!-- display comments -->
-
-    <div class="border border-gray-300 p-4 rounded-lg max-w-xl mx-auto mt-40">
-        <h2 class="text-lg font-medium mb-2">Comments</h2>
-        <div class="mb-4" v-for="comment in listing.comments" :key="comment.id">
-            <div v-if="comment.listing_id == listing.id">
-                <h5
-                class="block text-blue-100 font-medium mb-2"
-                for="comment" >
-                SenderEmail : {{ comment.senderEmail }}
-                
+  <!-- Display comments if conditions are met -->
+<div v-if="user.id == listing.by_user_id && listing.comments.length > 0" class="border border-gray-300 p-4 rounded-lg max-w-xl mx-auto mt-40">
+    <h2 class="text-lg font-medium mb-2">Comments</h2>
+    <div class="mb-4" v-for="comment in listing.comments" :key="comment.id">
+        <div>
+            <h5 class="block text-blue-100 font-medium mb-2" for="comment">
+                {{ listing.owner.name }} : {{ comment.comment }}
             </h5>
-            </div>
-
+            <span> Kontakt: {{ comment.senderEmail }}</span>
         </div>
     </div>
+</div>
+
+<!-- Display a message if no comments are available -->
+<div v-if="user.id == listing.by_user_id && listing.comments.length === 0" class="border border-gray-300 p-4 rounded-lg max-w-xl mx-auto mt-40">
+    <h2 class="text-lg font-medium mb-2">Kommentar</h2>
+    <div class="mb-4">
+        <div>
+            <h5 class="block text-blue-100 font-medium mb-2" for="comment">
+                Es gibt keine Kommentar
+            </h5>
+        </div>
+    </div>
+</div>
+
 
     <div class="flex justify-center mt-10">
         <div
@@ -122,12 +134,13 @@
         </div>
     </div>
 
-    <div v-if="listing.by_user_id == user.id"></div>
+    <div v-if="listing.by_user_id == user.id">
+    </div>
     <div v-else>
         <div
             class="border border-gray-300 p-4 rounded-lg max-w-xl mx-auto mt-20"
         >
-            <h2 class="text-lg font-medium mb-2">Leave a comment on</h2>
+            <h2 class="text-lg font-medium mb-2">Kontaktieren Sie den Makler</h2>
             <!-- <form @submit.prevent="submitForm" @keyup.enter.prevent="submitForm"> -->
             <form @submit.prevent="submitForm">
                 <div class="mb-4">
@@ -148,7 +161,7 @@
                     <label
                         class="block text-black-700 font-medium mb-2"
                         for="name"
-                        >Telephone(optional)</label
+                        >Telefonnummer(optional)</label
                     >
                     <input
                         class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
@@ -161,14 +174,14 @@
                     <label
                         class="block text-black-700 font-medium mb-2"
                         for="comment"
-                        >Comment</label
+                        >Kommentar</label
                     >
                     <textarea
                         rows="4"
                         v-model="form.comment"
                         class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
                         id="comment"
-                        placeholder="Enter your comment"
+                        placeholder="Shreiben Sie Ihre Anfrage ..."
                         required
                     ></textarea>
                     
@@ -188,11 +201,12 @@
                     <label
                         for="remember"
                         class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                        >I agree with the
+                        >Ich akzeptiere 
                         <a
                             href="#"
                             class="text-blue-600 hover:underline dark:text-blue-500"
-                            >terms and conditions</a
+                            >
+                            Geschäftsbedingungen</a
                         >.</label
                     >
                 </div>
@@ -218,7 +232,7 @@ import AddComment from "../Comment/AddComment.vue";
 import ListingAddress from "../../Components/ListingAddress.vue";
 import MainLayoutPage from "../../Layouts/MainLayoutPage.vue";
 import ListingSpace from "../../Components/ListingSpace.vue";
-import preis from "../../Components/preis.vue";
+import Preis from "../../Components/Preis.vue";
 import Box from "../../Components/UI/Box.vue";
 import Footer from "../../Layouts/Footer.vue";
 
