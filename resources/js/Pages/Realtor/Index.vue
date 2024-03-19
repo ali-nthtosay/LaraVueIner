@@ -8,7 +8,7 @@
       <div class="flex flex-col md:flex-row gap-2 md:items-center justify-between">
         <div :class="{ 'opacity-25': listing.deleted_at }">
           <div class="xl:flex items-center gap-2">
-            <Price :price="listing.price" class="text-2xl font-medium" />
+            <preis :preis="listing.preis" class="text-2xl font-medium" />
             <ListingSpace :listing="listing" />
           </div>
 
@@ -65,7 +65,7 @@
 import Pagination from '../Listing/Pagination.vue'
 import ListingAddress from '../../Components/ListingAddress.vue'
 import ListingSpace from '../../Components/ListingSpace.vue'
-import Price from '../../Components/Price.vue';
+import preis from '../../Components/preis.vue';
 import Box from  '../../Components/UI/Box.vue'
 import RealtorFilters from './RealtorFilters.vue'
 import { Link } from '@inertiajs/vue3'

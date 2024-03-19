@@ -15,9 +15,10 @@ class Listing extends Model
    use HasFactory, SoftDeletes;
 
 
-   protected $fillable = ['beds', 'baths', 'area', 'city', 'code', 'street', 'price', 'by_user_id'];
+   protected $fillable = ['zimmer', 'Badezimmer', 'wohnflaeche', 'stadt', 'plz', 'strasse','strasse_nr', 'preis', 'wohnungskategorie', 'aufzug', 'haustiere', 'by_user_id', 'haustiere','wohnungstype', 'aufzug'];
 
-    protected $sortable = ['price', 'created_at'] ;
+
+    protected $sortable = ['preis', 'created_at'] ;
 
 
     /// image
@@ -41,23 +42,23 @@ class Listing extends Model
     public function scopeFilter(Builder $query, array $filters): Builder
     {
         return $query->when(
-            $filters['priceFrom'] ?? false,
-            fn ($query, $value) => $query->where('price', '>=', $value)
+            $filters['preisAb'] ?? false,
+            fn ($query, $value) => $query->where('preis', '>=', $value)
         )->when(
-            $filters['priceTo'] ?? false,
-            fn ($query, $value) => $query->where('price', '<=', $value)
+            $filters['preisBis'] ?? false,
+            fn ($query, $value) => $query->where('preis', '<=', $value)
         )->when(
-            $filters['beds'] ?? false,
-            fn ($query, $value) => $query->where('beds', (int)$value < 6 ? '=' : '>=', $value)
+            $filters['zimmer'] ?? false,
+            fn ($query, $value) => $query->where('zimmer', (int)$value < 6 ? '=' : '>=', $value)
         )->when(
-            $filters['baths'] ?? false,
-            fn ($query, $value) => $query->where('baths', (int)$value < 6 ? '=' : '>=', $value)
+            $filters['badezimmer'] ?? false,
+            fn ($query, $value) => $query->where('badezimmer', (int)$value < 6 ? '=' : '>=', $value)
         )->when(
-            $filters['areaFrom'] ?? false,
-            fn ($query, $value) => $query->where('area', '>=', $value)
+            $filters['wohnfaecheAb'] ?? false,
+            fn ($query, $value) => $query->where('wohnflaeche', '>=', $value)
         )->when(
-            $filters['areaTo'] ?? false,
-            fn ($query, $value) => $query->where('area', '<=', $value)
+            $filters['wohnfaecheBis'] ?? false,
+            fn ($query, $value) => $query->where('wohnflaeche', '<=', $value)
             )->when(
                 $filters['deleted'] ?? false,
                 fn ($query, $value) => $query->withTrashed()

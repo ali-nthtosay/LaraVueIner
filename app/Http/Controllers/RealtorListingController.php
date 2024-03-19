@@ -38,48 +38,31 @@ class RealtorListingController extends Controller
 
     public function create()
     {
-        // $this->authorize('create', Listing::class);
         return inertia('Realtor/Create');
     }
-    // public function store(Listing $listing, Request $request)
-    // {
-        
-    //     if ($request->hasFile('images')) {
-    //         foreach ($request->file('images') as $file) {
-    //             $path = $file->store('images', 'public');
 
-    //             $listing->images()->save(new ListingImage([
-    //                 'filename' => $path
-    //             ]));
-    //         }
-    //     }
-
-    //     return redirect()->back()->with('success', 'Images uploaded!');
-    // }
     public function store(Request $request)
     {
         $user = Auth::user();
 
     
-        // Create a new instance of Listing
         $listing = new Listing();
     
-        // Set the properties of the listing
-        $listing->beds = $request->beds;
-        $listing->baths = $request->baths;
-        $listing->area = $request->area;
-        $listing->city = $request->city;
-        $listing->code = $request->code;
-        $listing->street = $request->street;
-        $listing->price = $request->price;
+        $listing->zimmer = $request->zimmer;
+        $listing->badezimmer = $request->badezimmer;
+        $listing->wohnflaeche = $request->wohnflaeche;
+        $listing->stadt = $request->stadt;
+        $listing->plz = $request->plz;
+        $listing->strasse = $request->strasse;
+        $listing->preis = $request->preis;
         $listing->by_user_id = $user->id;
-        // Save the listing
+        $listing->hausnummer = $request->hausnummer;
+        $listing->wohnungstype = $request->wohnungstype;
+
         $listing->save();
     
-        // Associate the listing with the user
         $user->listings()->save($listing);
     
-        // Redirect the user to the desired route with a success message
         return redirect()->route('realtor.listing.index')
                          ->with('success', 'Listing was created!');
     }
@@ -98,13 +81,15 @@ class RealtorListingController extends Controller
     {
         $listing->update(
             $request->validate([
-                'beds' => 'required|integer|min:0|max:20',
-                'baths' => 'required|integer|min:0|max:20',
-                'area' => 'required|integer|min:15|max:1500',
-                'city' => 'required',
-                'code' => 'required',
-                'street' => 'required',
-                'price' => 'required|integer|min:1|max:20000000',
+                'zimmer' => 'required|integer|min:0|max:20',
+                'badezimmer' => 'required|integer|min:0|max:20',
+                'wohnflaeche' => 'required|integer|min:15|max:1500',
+                'stadt' => 'required',
+                'plz' =>'required|integer|min:5|max:5',
+                'strasse' => 'required',
+                'preis' => 'required|integer|min:1|max:200000000',
+                'hausnummer' => 'required',
+                'wohnungstype' => 'required'
             ])
         );
 

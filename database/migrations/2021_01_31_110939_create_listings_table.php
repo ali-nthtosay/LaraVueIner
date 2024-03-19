@@ -16,13 +16,15 @@ return new class extends Migration
             $table->foreignIdFor(
                 \App\Models\User::class, 'by_user_id'
             )->constrained('users');
-            $table->unsignedTinyInteger('beds');
-            $table->unsignedTinyInteger('baths');
-            $table->unsignedInteger('area');
-            $table->tinyText('city');
-            $table->tinyText('code');
-            $table->tinyText('street');
-            $table->unsignedInteger('price');
+            $table->unsignedTinyInteger('zimmer');
+            $table->unsignedTinyInteger('badezimmer');
+            $table->unsignedInteger('wohnflaeche');
+            $table->tinyText('stadt');
+            $table->tinyText('plz');
+            $table->tinyText('strasse');
+            $table->tinyText('hausnummer');
+            $table->unsignedInteger('preis');
+            $table->tinyText('wohnungstype');
             $table->timestamps();
         });
     }

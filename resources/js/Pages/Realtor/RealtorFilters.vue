@@ -12,7 +12,7 @@
         <div>
         <select v-model="filterForm.by" class="input-filter-l w-24">
           <option value="created_at">Added</option>
-          <option value="price">Price</option>
+          <option value="preis">preis</option>
         </select>
         <select v-model="filterForm.order" class="input-filter-r w-32">
           <option
@@ -43,7 +43,7 @@
       value: 'asc',
     },
   ], 
-  price: [
+  preis: [
     {
       label: 'Pricey',
       value: 'desc',

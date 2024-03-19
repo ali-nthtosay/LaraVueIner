@@ -17,13 +17,13 @@ class ListingFactory extends Factory
     public function definition(): array
     {
         return [
-            'beds' => $this->faker->numberBetween(1, 5),
-            'baths' => $this->faker->numberBetween(1, 3),
-            'area' => $this->faker->numberBetween(500, 3000),
-            'city' => $this->faker->city,
-            'code' => $this->faker->postcode,
-            'street' => $this->faker->streetName,
-            'price' => $this->faker->numberBetween(10000, 1000000),
+            'zimmer' => $this->faker->numberBetween(1, 5),
+            'badezimmer' => $this->faker->numberBetween(1, 3),
+            'wohnflaeche' => $this->faker->numberBetween(500, 3000),
+            'stadt' => $this->faker->stadt,
+            'plz' => $this->faker->postcode,
+            'strasse' => $this->faker->streetName,
+            'preis' => $this->faker->numberBetween(10000, 1000000),
              'by_user_id'=> $this->faker->numberBetween(2,5),
             
         ];

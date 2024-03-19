@@ -12,7 +12,7 @@
                 </Box>
 
                  <div class="flex items-center gap-1">
-                    <Price :price="listing.price" class="text-2xl font-bold" />
+                    <preis :preis="listing.preis" class="text-2xl font-bold" />
                 </div>
             </Link>
 
@@ -44,7 +44,7 @@
     </Link>
     <div class="p-5">
         <Link :href="`/listing/${listing.id}`">
-            <Price :price="listing.price" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" />
+            <preis :preis="listing.preis" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" />
         </Link>
         <ListingAddress :listing="listing" class="mb-3 font-normal text-gray-700 dark:text-gray-400" />
         <ListingSpace :listing="listing" class="mb-3 font-normal text-gray-400 dark:text-gray-300" />
@@ -67,7 +67,7 @@ import { Link, usePage, router } from "@inertiajs/vue3";
 const props = defineProps({ listing: Object});
 import ListingAddress from "../../Components/ListingAddress.vue";
 import ListingSpace from "../../Components/ListingSpace.vue";
-import Price from "../../Components/Price.vue";
+import preis from "../../Components/preis.vue";
 import Box from "../../Components/UI/Box.vue";
 import Icon from "../../Components/UI/Icon.vue";
 import { ref, computed } from "vue";

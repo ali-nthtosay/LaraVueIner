@@ -1,7 +1,7 @@
 <template>
     <div>
         <span>
-            city: {{ listing.city }}, {{ listing.street }} 
+            stadt: {{ listing.stadt }}, {{ listing.strasse }} 
         </span>
     </div>
 </template>

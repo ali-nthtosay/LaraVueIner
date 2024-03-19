@@ -17,7 +17,7 @@
         </Box>
         <div class="md:col-span-5 flex flex-col gap-4">
             <Box>
-                <Price :price="listing.price" class="text-2xl font-bold" />
+                <preis :preis="listing.preis" class="text-2xl font-bold" />
                 <ListingSpace :listing="listing" class="text-lg" />
                 <ListingAddress :listing="listing" class="text-gray-500" />
             </Box>
@@ -218,7 +218,7 @@ import AddComment from "../Comment/AddComment.vue";
 import ListingAddress from "../../Components/ListingAddress.vue";
 import MainLayoutPage from "../../Layouts/MainLayoutPage.vue";
 import ListingSpace from "../../Components/ListingSpace.vue";
-import Price from "../../Components/Price.vue";
+import preis from "../../Components/preis.vue";
 import Box from "../../Components/UI/Box.vue";
 import Footer from "../../Layouts/Footer.vue";
 

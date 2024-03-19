@@ -1,59 +1,59 @@
 <template>
     <form class="form-container" @submit.prevent="update">
       <div class="form-group">
-        <label>Beds</label>
-        <input v-model.number="form.beds" type="text" class="input-field" />
-        <div v-if="form.errors.beds" class="input-error">
-          {{ form.errors.beds }}
+        <label>zimmer</label>
+        <input v-model.number="form.zimmer" type="text" class="input-field" />
+        <div v-if="form.errors.zimmer" class="input-error">
+          {{ form.errors.zimmer }}
         </div>
       </div>
   
       <div class="form-group">
-        <label>Baths</label>
-        <input v-model.number="form.baths" type="text" class="input-field" />
-        <div v-if="form.errors.baths" class="input-error">
-          {{ form.errors.baths }}
+        <label>badezimmer</label>
+        <input v-model.number="form.badezimmer" type="text" class="input-field" />
+        <div v-if="form.errors.badezimmer" class="input-error">
+          {{ form.errors.badezimmer }}
         </div>
       </div>
   
       <div class="form-group">
-        <label>Area</label>
-        <input v-model.number="form.area" type="text" class="input-field" />
-        <div v-if="form.errors.area" class="input-error">
-          {{ form.errors.area }}
+        <label>wohnflaeche</label>
+        <input v-model.number="form.wohnflaeche" type="text" class="input-field" />
+        <div v-if="form.errors.wohnflaeche" class="input-error">
+          {{ form.errors.wohnflaeche }}
         </div>
       </div>
   
       <div class="form-group">
-        <label>City</label>
-        <input v-model="form.city" type="text" class="input-field" />
-        <div v-if="form.errors.city" class="input-error">
-          {{ form.errors.city }}
+        <label>stadt</label>
+        <input v-model="form.stadt" type="text" class="input-field" />
+        <div v-if="form.errors.stadt" class="input-error">
+          {{ form.errors.stadt }}
         </div>
       </div>
   
       <div class="form-group">
-        <label>Post Code</label>
-        <input v-model="form.code" type="text" class="input-field" />
-        <div v-if="form.errors.code" class="input-error">
-          {{ form.errors.code }}
+        <label>Post plz</label>
+        <input v-model="form.plz" type="text" class="input-field" />
+        <div v-if="form.errors.plz" class="input-error">
+          {{ form.errors.plz }}
         </div>
       </div>
   
       <div class="form-group">
-        <label>Street</label>
-        <input v-model="form.street" type="text" class="input-field" />
-        <div v-if="form.errors.street" class="input-error">
-          {{ form.errors.street }}
+        <label>strasse</label>
+        <input v-model="form.strasse" type="text" class="input-field" />
+        <div v-if="form.errors.strasse" class="input-error">
+          {{ form.errors.strasse }}
         </div>
       </div>
   
 
       <div class="form-group">
-        <label>Price</label>
-        <input v-model.number="form.price" type="text" class="input-field" />
-        <div v-if="form.errors.price" class="input-error">
-          {{ form.errors.price }}
+        <label>preis</label>
+        <input v-model.number="form.preis" type="text" class="input-field" />
+        <div v-if="form.errors.preis" class="input-error">
+          {{ form.errors.preis }}
         </div>
       </div>
   
@@ -69,13 +69,13 @@
     listing: Object
   })
   const form = useForm({
-    beds: props.listing.beds ,
-    baths: props.listing.baths,
-    area: props.listing.area,
-    city: props.listing.city,
-    street: props.listing.city,
-    code: props.listing.code,
-    price: props.listing.price,
+    zimmer: props.listing.zimmer ,
+    badezimmer: props.listing.badezimmer,
+    wohnflaeche: props.listing.wohnflaeche,
+    stadt: props.listing.stadt,
+    strasse: props.listing.stadt,
+    plz: props.listing.plz,
+    preis: props.listing.preis,
   })
   // const update = () => form.put(`/listing/${props.listing.id}`)
    const update = () => form.put(

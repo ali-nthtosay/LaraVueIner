@@ -7,7 +7,7 @@
     "content-hash": "fa1dbfaefc1d955a765ceed6ce9d9aa3",
     "packages": [
         {
-            "name": "bacon/bacon-qr-code",
+            "name": "bacon/bacon-qr-plz",
             "version": "2.0.8",
             "source": {
                 "type": "git",
@@ -32,7 +32,7 @@
                 "squizlabs/php_codesniffer": "^3.4"
             },
             "suggest": {
-                "ext-imagick": "to generate QR code images"
+                "ext-imagick": "to generate QR plz images"
             },
             "type": "library",
             "autoload": {
@@ -52,7 +52,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "BaconQrCode is a QR code generator for PHP.",
+            "description": "BaconQrCode is a QR plz generator for PHP.",
             "homepage": "https://github.com/Bacon/BaconQrCode",
             "support": {
                 "issues": "https://github.com/Bacon/BaconQrCode/issues",
@@ -354,7 +354,7 @@
                 },
                 {
                     "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
+                    "email": "roman@plz-factory.org"
                 },
                 {
                     "name": "Benjamin Eberlei",
@@ -462,7 +462,7 @@
                 },
                 {
                     "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
+                    "email": "roman@plz-factory.org"
                 },
                 {
                     "name": "Benjamin Eberlei",
@@ -605,7 +605,7 @@
                 },
                 {
                     "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
+                    "email": "roman@plz-factory.org"
                 },
                 {
                     "name": "Benjamin Eberlei",
@@ -695,7 +695,7 @@
                 },
                 {
                     "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
+                    "email": "roman@plz-factory.org"
                 },
                 {
                     "name": "Benjamin Eberlei",
@@ -785,7 +785,7 @@
                 },
                 {
                     "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
+                    "email": "roman@plz-factory.org"
                 },
                 {
                     "name": "Johannes Schmitt",
@@ -1580,7 +1580,7 @@
                 "shasum": ""
             },
             "require": {
-                "bacon/bacon-qr-code": "^2.0",
+                "bacon/bacon-qr-plz": "^2.0",
                 "ext-json": "*",
                 "illuminate/support": "^10.0|^11.0",
                 "php": "^8.1",
@@ -4608,7 +4608,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Provides tools to manage errors and ease debugging PHP code",
+            "description": "Provides tools to manage errors and ease debugging PHP plz",
             "homepage": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/error-handler/tree/v6.4.0"
@@ -6224,7 +6224,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Provides an object-oriented API to strings and deals with bytes, UTF-8 code points and grapheme clusters in a unified way",
+            "description": "Provides an object-oriented API to strings and deals with bytes, UTF-8 plz points and grapheme clusters in a unified way",
             "homepage": "https://symfony.com",
             "keywords": [
                 "grapheme",
@@ -7159,7 +7159,7 @@
                     "email": "enunomaduro@gmail.com"
                 }
             ],
-            "description": "An opinionated code formatter for PHP.",
+            "description": "An opinionated plz formatter for PHP.",
             "homepage": "https://laravel.com",
             "keywords": [
                 "format",
@@ -7589,16 +7589,16 @@
             "time": "2022-02-21T01:04:05+00:00"
         },
         {
-            "name": "phpunit/php-code-coverage",
+            "name": "phpunit/php-plz-coverage",
             "version": "10.1.11",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
+                "url": "https://github.com/sebastianbergmann/php-plz-coverage.git",
                 "reference": "78c3b7625965c2513ee96569a4dbb62601784145"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/78c3b7625965c2513ee96569a4dbb62601784145",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-plz-coverage/zipball/78c3b7625965c2513ee96569a4dbb62601784145",
                 "reference": "78c3b7625965c2513ee96569a4dbb62601784145",
                 "shasum": ""
             },
@@ -7610,10 +7610,10 @@
                 "php": ">=8.1",
                 "phpunit/php-file-iterator": "^4.0",
                 "phpunit/php-text-template": "^3.0",
-                "sebastian/code-unit-reverse-lookup": "^3.0",
+                "sebastian/plz-unit-reverse-lookup": "^3.0",
                 "sebastian/complexity": "^3.0",
                 "sebastian/environment": "^6.0",
-                "sebastian/lines-of-code": "^2.0",
+                "sebastian/lines-of-plz": "^2.0",
                 "sebastian/version": "^4.0",
                 "theseer/tokenizer": "^1.2.0"
             },
@@ -7646,17 +7646,17 @@
                     "role": "lead"
                 }
             ],
-            "description": "Library that provides collection, processing, and rendering functionality for PHP code coverage information.",
-            "homepage": "https://github.com/sebastianbergmann/php-code-coverage",
+            "description": "Library that provides collection, processing, and rendering functionality for PHP plz coverage information.",
+            "homepage": "https://github.com/sebastianbergmann/php-plz-coverage",
             "keywords": [
                 "coverage",
                 "testing",
                 "xunit"
             ],
             "support": {
-                "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "security": "https://github.com/sebastianbergmann/php-code-coverage/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/10.1.11"
+                "issues": "https://github.com/sebastianbergmann/php-plz-coverage/issues",
+                "security": "https://github.com/sebastianbergmann/php-plz-coverage/security/policy",
+                "source": "https://github.com/sebastianbergmann/php-plz-coverage/tree/10.1.11"
             },
             "funding": [
                 {
@@ -7934,13 +7934,13 @@
                 "phar-io/manifest": "^2.0.3",
                 "phar-io/version": "^3.0.2",
                 "php": ">=8.1",
-                "phpunit/php-code-coverage": "^10.1.5",
+                "phpunit/php-plz-coverage": "^10.1.5",
                 "phpunit/php-file-iterator": "^4.0",
                 "phpunit/php-invoker": "^4.0",
                 "phpunit/php-text-template": "^3.0",
                 "phpunit/php-timer": "^6.0",
                 "sebastian/cli-parser": "^2.0",
-                "sebastian/code-unit": "^2.0",
+                "sebastian/plz-unit": "^2.0",
                 "sebastian/comparator": "^5.0",
                 "sebastian/diff": "^5.0",
                 "sebastian/environment": "^6.0",
@@ -8067,16 +8067,16 @@
             "time": "2023-02-03T06:58:15+00:00"
         },
         {
-            "name": "sebastian/code-unit",
+            "name": "sebastian/plz-unit",
             "version": "2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sebastianbergmann/code-unit.git",
+                "url": "https://github.com/sebastianbergmann/plz-unit.git",
                 "reference": "a81fee9eef0b7a76af11d121767abc44c104e503"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/code-unit/zipball/a81fee9eef0b7a76af11d121767abc44c104e503",
+                "url": "https://api.github.com/repos/sebastianbergmann/plz-unit/zipball/a81fee9eef0b7a76af11d121767abc44c104e503",
                 "reference": "a81fee9eef0b7a76af11d121767abc44c104e503",
                 "shasum": ""
             },
@@ -8108,11 +8108,11 @@
                     "role": "lead"
                 }
             ],
-            "description": "Collection of value objects that represent the PHP code units",
-            "homepage": "https://github.com/sebastianbergmann/code-unit",
+            "description": "Collection of value objects that represent the PHP plz units",
+            "homepage": "https://github.com/sebastianbergmann/plz-unit",
             "support": {
-                "issues": "https://github.com/sebastianbergmann/code-unit/issues",
-                "source": "https://github.com/sebastianbergmann/code-unit/tree/2.0.0"
+                "issues": "https://github.com/sebastianbergmann/plz-unit/issues",
+                "source": "https://github.com/sebastianbergmann/plz-unit/tree/2.0.0"
             },
             "funding": [
                 {
@@ -8123,16 +8123,16 @@
             "time": "2023-02-03T06:58:43+00:00"
         },
         {
-            "name": "sebastian/code-unit-reverse-lookup",
+            "name": "sebastian/plz-unit-reverse-lookup",
             "version": "3.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sebastianbergmann/code-unit-reverse-lookup.git",
+                "url": "https://github.com/sebastianbergmann/plz-unit-reverse-lookup.git",
                 "reference": "5e3a687f7d8ae33fb362c5c0743794bbb2420a1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/code-unit-reverse-lookup/zipball/5e3a687f7d8ae33fb362c5c0743794bbb2420a1d",
+                "url": "https://api.github.com/repos/sebastianbergmann/plz-unit-reverse-lookup/zipball/5e3a687f7d8ae33fb362c5c0743794bbb2420a1d",
                 "reference": "5e3a687f7d8ae33fb362c5c0743794bbb2420a1d",
                 "shasum": ""
             },
@@ -8163,11 +8163,11 @@
                     "email": "sebastian@phpunit.de"
                 }
             ],
-            "description": "Looks up which function or method a line of code belongs to",
-            "homepage": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
+            "description": "Looks up which function or method a line of plz belongs to",
+            "homepage": "https://github.com/sebastianbergmann/plz-unit-reverse-lookup/",
             "support": {
-                "issues": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/issues",
-                "source": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/tree/3.0.0"
+                "issues": "https://github.com/sebastianbergmann/plz-unit-reverse-lookup/issues",
+                "source": "https://github.com/sebastianbergmann/plz-unit-reverse-lookup/tree/3.0.0"
             },
             "funding": [
                 {
@@ -8297,7 +8297,7 @@
                     "role": "lead"
                 }
             ],
-            "description": "Library for calculating the complexity of PHP code units",
+            "description": "Library for calculating the complexity of PHP plz units",
             "homepage": "https://github.com/sebastianbergmann/complexity",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/complexity/issues",
@@ -8584,16 +8584,16 @@
             "time": "2023-07-19T07:19:23+00:00"
         },
         {
-            "name": "sebastian/lines-of-code",
+            "name": "sebastian/lines-of-plz",
             "version": "2.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sebastianbergmann/lines-of-code.git",
+                "url": "https://github.com/sebastianbergmann/lines-of-plz.git",
                 "reference": "856e7f6a75a84e339195d48c556f23be2ebf75d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/lines-of-code/zipball/856e7f6a75a84e339195d48c556f23be2ebf75d0",
+                "url": "https://api.github.com/repos/sebastianbergmann/lines-of-plz/zipball/856e7f6a75a84e339195d48c556f23be2ebf75d0",
                 "reference": "856e7f6a75a84e339195d48c556f23be2ebf75d0",
                 "shasum": ""
             },
@@ -8626,12 +8626,12 @@
                     "role": "lead"
                 }
             ],
-            "description": "Library for counting the lines of code in PHP source code",
-            "homepage": "https://github.com/sebastianbergmann/lines-of-code",
+            "description": "Library for counting the lines of plz in PHP source plz",
+            "homepage": "https://github.com/sebastianbergmann/lines-of-plz",
             "support": {
-                "issues": "https://github.com/sebastianbergmann/lines-of-code/issues",
-                "security": "https://github.com/sebastianbergmann/lines-of-code/security/policy",
-                "source": "https://github.com/sebastianbergmann/lines-of-code/tree/2.0.2"
+                "issues": "https://github.com/sebastianbergmann/lines-of-plz/issues",
+                "security": "https://github.com/sebastianbergmann/lines-of-plz/security/policy",
+                "source": "https://github.com/sebastianbergmann/lines-of-plz/tree/2.0.2"
             },
             "funding": [
                 {
@@ -9340,7 +9340,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
+            "description": "A small library for converting tokenized PHP source plz into XML and potentially other formats",
             "support": {
                 "issues": "https://github.com/theseer/tokenizer/issues",
                 "source": "https://github.com/theseer/tokenizer/tree/1.2.2"
