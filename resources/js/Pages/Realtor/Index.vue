@@ -1,5 +1,7 @@
-<template>
-      <h1 class="text-3xl mb-4">Your Listings</h1>
+<template >
+ <div class="mx-4">
+  <main-layout-page></main-layout-page>
+      <h1 class="text-3xl mb-4">Deine Anzeige</h1>
       <section>
       <RealtorFilters :filters="filters" />
   </section>
@@ -59,13 +61,15 @@
   <section v-if="listings.data.length" class="w-full flex justify-center mt-4 mb-4">
     <Pagination :links="listings.links" />
   </section>
+ </div>
 </template>
 
 <script setup>
+import MainLayoutPage from '../../Layouts/MainLayoutPage.vue';
 import Pagination from '../Listing/Pagination.vue'
 import ListingAddress from '../../Components/ListingAddress.vue'
 import ListingSpace from '../../Components/ListingSpace.vue'
-import preis from '../../Components/preis.vue';
+import Preis from '../../Components/Preis.vue';
 import Box from  '../../Components/UI/Box.vue'
 import RealtorFilters from './RealtorFilters.vue'
 import { Link } from '@inertiajs/vue3'

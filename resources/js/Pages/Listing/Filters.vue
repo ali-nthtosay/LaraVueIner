@@ -29,13 +29,13 @@
   
         <div class="flex flex-nowrap items-center">
           <input
-          v-model.number="filterForm.flaecheVon"
-            type="text" placeholder="wohnflaeche from"
+          v-model.number="filterForm.wohnflaecheVon"
+            type="text" placeholder="wohnflaeche von"
             class="input-filter-l w-28"
           />
           <input
-          v-model.number="filterForm.flaecheBis"
-            type="text" placeholder="wohnflaeche to"
+          v-model.number="filterForm.wohnflaecheBis"
+            type="text" placeholder="wohnflaeche bis"
             class="input-filter-r w-28"
           />
         </div>
@@ -59,8 +59,8 @@ const filterForm = useForm({
   preisBis: props.filters.preisBis ?? null,
   zimmer: props.filters.zimmer ?? null,
   badezimmer: props.filters.badezimmer ?? null,
-  flaecheVon: props.filters.flaecheVon ?? null,
-  flaecheBis: props.filters.flaecheBis ?? null,
+  wohnflaecheVon: props.filters.wohnflaecheVon ?? null,
+  wohnflaecheBis: props.filters.wohnflaecheBis ?? null,
 })
 const filter = () => {
   filterForm.get('/listing',{
@@ -73,8 +73,8 @@ const clear = () => {
   filterForm.preisBis = null
   filterForm.zimmer = null
   filterForm.badezimmer = null
-  filterForm.flaecheVon = null
-  filterForm.flaecheBis = null
+  filterForm.wohnflaecheVon = null
+  filterForm.wohnflaecheBis = null
   filter()
 }
 </script>

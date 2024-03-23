@@ -15,7 +15,7 @@ class Listing extends Model
    use HasFactory, SoftDeletes;
 
 
-   protected $fillable = ['zimmer', 'Badezimmer', 'wohnflaeche', 'stadt', 'plz', 'strasse','strasse_nr', 'preis', 'wohnungskategorie', 'aufzug', 'haustiere', 'by_user_id', 'haustiere','wohnungstype', 'aufzug'];
+   protected $fillable = ['zimmer', 'Badezimmer', 'wohnflaeche', 'stadt', 'plz', 'strasse','strasse_nr', 'preis',  'by_user_id', 'wohnungstype'];
 
 
     protected $sortable = ['preis', 'created_at'] ;
@@ -54,10 +54,10 @@ class Listing extends Model
             $filters['badezimmer'] ?? false,
             fn ($query, $value) => $query->where('badezimmer', (int)$value < 6 ? '=' : '>=', $value)
         )->when(
-            $filters['wohnfaecheAb'] ?? false,
+            $filters['wohnflaecheVon'] ?? false,
             fn ($query, $value) => $query->where('wohnflaeche', '>=', $value)
         )->when(
-            $filters['wohnfaecheBis'] ?? false,
+            $filters['wohnflaecheBis'] ?? false,
             fn ($query, $value) => $query->where('wohnflaeche', '<=', $value)
             )->when(
                 $filters['deleted'] ?? false,

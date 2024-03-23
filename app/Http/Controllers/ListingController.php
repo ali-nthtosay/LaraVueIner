@@ -31,7 +31,7 @@ class ListingController extends Controller
         $listing = Listing::withCount('likes')->withCasts(['likes_count' => 'boolean'])->get();
 
         $filters = $request->only([
-            'preisAb', 'preisBis', 'zimmer', 'badezimmer', 'flaecheVon', 'flaecheBis'
+            'preisAb', 'preisBis', 'zimmer', 'badezimmer', 'wohnflaecheVon', 'wohnflaecheBis'
         ]);
          $listing = Listing::mostRecent()
          ->withCount('likes')->with('likes')->withCasts(['likes_count' => 'boolean'])

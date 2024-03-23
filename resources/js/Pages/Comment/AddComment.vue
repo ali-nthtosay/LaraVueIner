@@ -24,6 +24,7 @@
                 type="button">Post Comment</button>
         </div>
     </form>
+    
 </div>
 </template>
 

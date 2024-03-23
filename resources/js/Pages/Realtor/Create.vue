@@ -1,8 +1,8 @@
 <template>
 
 
-
-<form class="max-w-md mx-auto" @submit.prevent="form.post(route('realtor.listing.store'))">
+<main-layout-page></main-layout-page>
+<form class="max-w-md mx-auto mt-7" @submit.prevent="form.post(route('realtor.listing.store'))">
 
   <div class="grid md:grid-cols-2 md:gap-6">
     <div class="relative z-0 w-full mb-5 group">
@@ -77,6 +77,7 @@ class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:
 
 
   </div>
+  
   <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center
    dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Anzeige Erstellen</button>
 </form>
@@ -88,6 +89,9 @@ class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:
 </template>
 
 <script setup>
+import Toast from 'primevue/toast';
+
+import MainLayoutPage from "../../Layouts/MainLayoutPage.vue";
 import { useForm } from "@inertiajs/vue3";
 const form = useForm({
     zimmer: null,

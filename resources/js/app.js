@@ -4,6 +4,10 @@ import '../css/app.css'
 import { InertiaProgress } from '@inertiajs/progress'
 import { ZiggyVue } from 'ziggy'
 import Toaster from "@meforma/vue-toaster";
+import PrimeVue from 'primevue/config';
+import 'primevue/resources/themes/lara-light-green/theme.css'
+import ToastService from 'primevue/toastservice';
+
 
 InertiaProgress.init({
   delay: 0,
@@ -21,6 +25,10 @@ createInertiaApp({
     createApp({ render: () => h(App, props) })
     .use(ZiggyVue)
     .use(Toaster)
+    .use(PrimeVue, { unstyled: true, 
+    
+    })
+
       .use(plugin)
       .mount(el)
   },

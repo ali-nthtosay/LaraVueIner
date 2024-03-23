@@ -1,70 +1,90 @@
 <template>
-    <form class="form-container" @submit.prevent="update">
-      <div class="form-group">
-        <label>zimmer</label>
-        <input v-model.number="form.zimmer" type="text" class="input-field" />
-        <div v-if="form.errors.zimmer" class="input-error">
-          {{ form.errors.zimmer }}
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <label>badezimmer</label>
-        <input v-model.number="form.badezimmer" type="text" class="input-field" />
-        <div v-if="form.errors.badezimmer" class="input-error">
-          {{ form.errors.badezimmer }}
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <label>wohnflaeche</label>
-        <input v-model.number="form.wohnflaeche" type="text" class="input-field" />
-        <div v-if="form.errors.wohnflaeche" class="input-error">
-          {{ form.errors.wohnflaeche }}
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <label>stadt</label>
-        <input v-model="form.stadt" type="text" class="input-field" />
-        <div v-if="form.errors.stadt" class="input-error">
-          {{ form.errors.stadt }}
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <label>Post plz</label>
-        <input v-model="form.plz" type="text" class="input-field" />
-        <div v-if="form.errors.plz" class="input-error">
-          {{ form.errors.plz }}
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <label>strasse</label>
-        <input v-model="form.strasse" type="text" class="input-field" />
-        <div v-if="form.errors.strasse" class="input-error">
-          {{ form.errors.strasse }}
-        </div>
-      </div>
-  
+<MainLayoutPage></MainLayoutPage>
+<form class="max-w-md mx-auto mt-7" @submit.prevent="form.post(route('realtor.listing.store'))">
 
-      <div class="form-group">
-        <label>preis</label>
-        <input v-model.number="form.preis" type="text" class="input-field" />
-        <div v-if="form.errors.preis" class="input-error">
-          {{ form.errors.preis }}
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <button type="submit" class="submit-button">Create</button>
-      </div>
-    </form>
+<div class="grid md:grid-cols-2 md:gap-6">
+  <div class="relative z-0 w-full mb-5 group">
+      <input v-model.number="form.zimmer" type="number"  name="floating_zimmer" id="floating_zimmer" class="block py-2.5 px-0 w-full text-sm text-gray-900
+       bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+      <label for="floating_zimmer" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0]
+       peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 
+       peer-focus:scale-75 peer-focus:-translate-y-6">Zimmer</label>
+  </div>
+  <div class="relative z-0 w-full mb-5 group">
+      <input v-model.number="form.badezimmer"  type="nummer" name="floating_badezimmer" id="floating_badezimmer" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+      <label for="floating_badezimmer" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 
+      transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 
+      peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Badezimmer</label>
+  </div>
+
+  <div class="relative z-0 w-full mb-5 group">
+      <input v-model.number="form.wohnflaeche" type="number"  name="floating_wohnflaeche" id="floating_wohnflaeche" class="block py-2.5 px-0 w-full text-sm text-gray-900
+       bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+      <label for="floating_wohnflaeche" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0]
+       peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 
+       peer-focus:scale-75 peer-focus:-translate-y-6">Wohnfläche</label>
+  </div>
+  <div class="relative z-0 w-full mb-5 group">
+      <input v-model.number="form.preis"  type="number"  name="floating_preis" id="floating_preis" class="block py-2.5 px-0 w-full text-sm text-gray-900
+       bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+      <label for="floating_preis" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0]
+       peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 
+       peer-focus:scale-75 peer-focus:-translate-y-6">Preis</label>
+  </div>
+  <div class="relative z-0 w-full mb-5 group">
+      <input  v-model.number="form.stadt"  type="nummer" name="floating_stadt" id="floating_stadt" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+      <label for="floating_stadt" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 
+      transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 
+      peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Stadt</label>
+  </div>
+
+
+  <div class="relative z-0 w-full mb-5 group">
+      <input  v-model.number="form.plz"  type="nummer" name="floating_plz" id="floating_plz" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+      <label for="floating_plz" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 
+      transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 
+      peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">PLZ</label>
+  </div>
+
+  <div class="relative z-0 w-full mb-5 group">
+      <input v-model.number="form.strasse"  type="text"  name="floating_strasse" id="floating_strasse" class="block py-2.5 px-0 w-full text-sm text-gray-900
+       bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+      <label for="floating_strasse" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0]
+       peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 
+       peer-focus:scale-75 peer-focus:-translate-y-6">Straße</label>
+  </div>
+  <div class="relative z-0 w-full mb-5 group">
+      <input  v-model.number="form.hausnummer"  type="nummer" name="floating_plz" id="floating_plz" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+      <label for="floating_plz" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 
+      transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 
+      peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Hausnummer</label>
+  </div>
+
+  <div class="relative z-0 w-full mb-5 group">
+<label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Wählen Sie Wohnungstype aus</label>
+<select  v-model.number="form.wohnungstype"  
+class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+  <option>Wohnung</option>
+  <option>Haus</option>
+
+</select>
+
+  </div>
+
+
+</div>
+<button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center
+ dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Anzeige Erstellen</button>
+</form>
+
+
   </template>
   
   <script setup>
   import { useForm } from '@inertiajs/vue3'; 
+import MainLayoutPage from '../../Layouts/MainLayoutPage.vue';
   const props= defineProps({
     listing: Object
   })
