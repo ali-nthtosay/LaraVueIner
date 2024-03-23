@@ -61,9 +61,22 @@ class ListingController extends Controller
     */
    public function show(Listing $listing)
    {
-    if(auth()->user()->id !== $listing->by_user_id) {
-        $listing->increment('count_view');
-    }    
+        // Check if the user has already viewed this listing in the current session
+        $viewedListings = session()->get('viewed_listings', []);
+
+        // If the listing has not been viewed in the current session
+        if (!in_array($listing->id, $viewedListings)) {
+            // Increment the count_view attribute
+            $listing->increment('count_view');
+    
+            // Add the listing ID to the viewed listings array in the session
+            $viewedListings[] = $listing->id;
+            session(['viewed_listings' => $viewedListings]);
+        }
+    
+    // if(auth()->user()->id !== $listing->by_user_id) {
+    //     $listing->increment('count_view');
+    // }    
     $listing->load(['images', 'owner', 'comments']);
        return inertia(
            'Listing/Show',

@@ -111,13 +111,13 @@ class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:
 </form>
 
 
-
+<Footer  class="fixed bottom-0 w-full"></Footer>
 
 
 </template>
 
 <script setup>
-
+import Footer from "../../Layouts/Footer.vue";
 import axios from "axios";
 import { ref } from "vue";
 const sentMessage = ref(false);

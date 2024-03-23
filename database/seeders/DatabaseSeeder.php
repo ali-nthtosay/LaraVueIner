@@ -52,9 +52,7 @@ class DatabaseSeeder extends Seeder
             // //->for($user, 'owner')
             //  ->create();
 
-            // $this->call(
-            //     ChatRoomSeeder::class
-            // );
+
                 \App\Models\Comment::factory(5) ;
 
     }

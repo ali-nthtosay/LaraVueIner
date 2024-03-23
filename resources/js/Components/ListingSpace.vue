@@ -1,7 +1,7 @@
 <template>
     <div>
-      <span class="font-bold">{{ listing.zimmer }}</span> bds <span class="text-gray-400">| </span>  
-      <span class="font-bold">{{ listing.badezimmer }}</span> ba <span
+      <span class="font-bold">{{ listing.zimmer }}</span> Zimmer <span class="text-gray-400">| </span>  
+      <span class="font-bold">{{ listing.badezimmer }}</span> Badezimmer <span
         class="text-gray-400"
       >| </span>
       <span class="font-bold">{{ listing.wohnflaeche }}</span> m²

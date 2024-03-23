@@ -41,7 +41,7 @@
         </div>
   
         <button type="submit" class="btn-normal" >Filter</button>
-        <button type="reset" @click="clear">Clear</button>
+        <button type="reset" @click="clear" class="btn-normal">Zurücksetzen</button>
       </div>
     </form>
   </template>

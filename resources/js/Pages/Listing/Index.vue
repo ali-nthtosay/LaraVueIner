@@ -2,7 +2,9 @@
   <div v-if="user">
 
   <MainLayoutPage></MainLayoutPage>
-  <Filters :filters="filters" />
+ <div class="ml-10">
+  <Filters :filters="filters"  />
+ </div>
   
   <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 overflow-x-hidden">
     <Listing v-for="listing in listings.data" :key="listing.id" :listing="listing" >
@@ -45,12 +47,12 @@
     <Pagination :links="listings.links" />
 </div>
   </div>
-
+<Footer></Footer>
 </template>
 
 <script setup>
 import NavBar from "../../Layouts/NavBar.vue";
-
+import Footer from "../../Layouts/Footer.vue";
 import Listing from './Listing.vue'
 import Pagination from './Pagination.vue'
 import Filters from './Filters.vue'

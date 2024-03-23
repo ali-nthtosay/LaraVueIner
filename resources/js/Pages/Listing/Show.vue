@@ -54,7 +54,7 @@
         </Box>
         <Box v-else class="md:col-span-7 flex items-center" >
             <div  class="w-full text-center font-medium text-gray-500">
-                Kein Foto vorhande
+                Kein Foto vorhanden
 </div>
         </Box>
         <div class="md:col-span-5 flex flex-col gap-4">
@@ -80,7 +80,7 @@
     <h2 class="text-lg font-medium mb-2">Comments</h2>
     <div class="mb-4" v-for="comment in listing.comments" :key="comment.id">
         <div>
-            <h5 class="block text-blue-100 font-medium mb-2" for="comment">
+            <h5 class="block text-black font-medium mb-2 " for="comment">
                 {{ listing.owner.name }} : {{ comment.comment }}
             </h5>
             <span> Kontakt: {{ comment.senderEmail }}</span>
@@ -93,7 +93,7 @@
     <h2 class="text-lg font-medium mb-2">Kommentar</h2>
     <div class="mb-4">
         <div>
-            <h5 class="block text-blue-100 font-medium mb-2" for="comment">
+            <h5 class="block text-black font-medium mb-2" for="comment">
                 Es gibt keine Kommentar
             </h5>
         </div>
@@ -266,7 +266,7 @@
             </form>
         </div>
     </div>
-    <Footer></Footer>
+    <Footer  class="fixed bottom-0 w-full"></Footer>
 
 </template>
 

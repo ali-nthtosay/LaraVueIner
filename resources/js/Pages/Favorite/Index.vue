@@ -1,6 +1,6 @@
 <template>
     <MainLayoutPage></MainLayoutPage>
-    <Box>
+    <Box v-if="listings.length">
 
         <div   v-for="listing in listings" :key="listing.id" :listing="listing"
         class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"
@@ -31,11 +31,15 @@
         </div>
         
     </Box>
+    <Box v-else>
+        <div>No fav</div>
+    </Box>
+    <Footer></Footer>
   </template>
   
   <script setup>
+  import Footer from "../../Layouts/Footer.vue";
   import { Link, usePage, router } from "@inertiajs/vue3";
-  import Listing from '../Listing/Listing.vue'
 import ListingAddress from "../../Components/ListingAddress.vue";
 import ListingSpace from "../../Components/ListingSpace.vue";
 import Preis from "../../Components/Preis.vue";

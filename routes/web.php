@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ChatController;
+
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LikeController;
@@ -53,13 +53,7 @@ Route::prefix('dashboard')
   Route::delete('/listing/{listing}/like',[LikeController::class , 'checkLikes']);
 
   Route::resource('listing/{listing}/favorite', FavoriteController::class)->only('index');
-
-  Route::get('/chat', function(){
-    return Inertia::render('Chat/Container');
-  });
-  Route::get('/chat/rooms', [ChatController::class, 'rooms']);
-  Route::get('/chat/room/{roomId}/messages', [ChatController::class, 'messages']);
-  Route::post('/chat/room/{roomId}/message', [ChatController::class, 'newMessage']);
+  
 
   Route::get('getcomment', [CommentController::class, 'index']);
   Route::post('/comment/store/', [CommentController::class, 'store']);

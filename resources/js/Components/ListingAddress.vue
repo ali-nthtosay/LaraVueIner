@@ -1,7 +1,13 @@
 <template>
     <div>
         <span>
-            stadt: {{ listing.stadt }}, {{ listing.strasse }} 
+            
+            Stadt: {{ listing.stadt }}, PLZ: {{ listing.plz }}
+        </span>
+    </div>
+    <div>
+        <span>
+            Straße: {{ listing.strasse }}, Hausnummer : {{ listing.hausnummer }}
         </span>
     </div>
 </template>

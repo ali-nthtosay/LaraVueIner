@@ -1,12 +1,12 @@
 <template >
- <div class="mx-4">
   <main-layout-page></main-layout-page>
-      <h1 class="text-3xl mb-4">Deine Anzeige</h1>
+      <h1 class="text-3xl mb-4 ml-3">Deine Anzeigen</h1>
       <section>
-      <RealtorFilters :filters="filters" />
+      <!-- <RealtorFilters :filters="filters" /> -->
   </section>
-  <section class="grid grid-cols-1 lg:grid-cols-2 gap-2">
-    <Box v-for="listing in listings.data" :key="listing.id" :class="{ 'border-dashed': listing.deleted_at }">
+  <div class="mx-6">
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-2">
+    <Box v-for="listing in listings.data" :key="listing.id">
       <div class="flex flex-col md:flex-row gap-2 md:items-center justify-between">
         <div :class="{ 'opacity-25': listing.deleted_at }">
           <div class="xl:flex items-center gap-2">
@@ -62,10 +62,13 @@
   <section v-if="listings.data.length" class="w-full flex justify-center mt-4 mb-4">
     <Pagination :links="listings.links" />
   </section>
- </div>
+  </div>
+
+  <Footer  class="fixed bottom-0 w-full"></Footer>
 </template>
 
 <script setup>
+import Footer from '../../Layouts/Footer.vue';
 import MainLayoutPage from '../../Layouts/MainLayoutPage.vue';
 import Pagination from '../Listing/Pagination.vue'
 import ListingAddress from '../../Components/ListingAddress.vue'

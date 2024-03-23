@@ -54,11 +54,11 @@
        peer-focus:scale-75 peer-focus:-translate-y-6">Straße</label>
   </div>
   <div class="relative z-0 w-full mb-5 group">
-      <input  v-model.number="form.hausnummer"  type="nummer" name="floating_plz" id="floating_plz" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-      <label for="floating_plz" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 
-      transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 
-      peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Hausnummer</label>
-  </div>
+        <input  v-model.number="form.hausnummer"  type="nummer" name="floating_plz" id="floating_plz" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="floating_plz" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 
+        transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 
+        peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Hausnummer</label>
+    </div>
 
   <div class="relative z-0 w-full mb-5 group">
 <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Wählen Sie Wohnungstype aus</label>
@@ -79,10 +79,11 @@ dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white 
  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Anzeige Erstellen</button>
 </form>
 
-
+<Footer  class="fixed bottom-0 w-full"></Footer>
   </template>
   
   <script setup>
+  import Footer from '../../Layouts/Footer.vue';
   import { useForm } from '@inertiajs/vue3'; 
 import MainLayoutPage from '../../Layouts/MainLayoutPage.vue';
   const props= defineProps({
@@ -96,6 +97,8 @@ import MainLayoutPage from '../../Layouts/MainLayoutPage.vue';
     strasse: props.listing.stadt,
     plz: props.listing.plz,
     preis: props.listing.preis,
+    hausnummer: props.listing.hausnummer,
+    wohnungstype: props.listing.wohnungstype
   })
   // const update = () => form.put(`/listing/${props.listing.id}`)
    const update = () => form.put(

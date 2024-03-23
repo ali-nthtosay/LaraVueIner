@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <nav class="bg-white border-gray-200 dark:bg-gray-900 mb-5">
+  <div class="mx-auto">
+    <nav class="bg-gray-300 border-gray-200 dark:bg-gray-900 mb-5">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/realtor/listing" class="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Logo" />
+        <a href="/dashboard/listing" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src="../Components/Images/easimo-Logo.png" class="h-5" alt="Logo" />
           <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{ user.name }}</span>
         </a>
         <button
@@ -20,15 +20,23 @@
           </svg>
         </button>
         <div class="hidden w-full md:block md:w-auto" id="navbar-default" :class="{ 'hidden': !navbarOpen }">
-          <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-300
+           rounded-lg bg-gray-300 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-gray dark:bg-gray-800
+            md:dark:bg-gray-900 dark:border-gray-700">
+            
             <li>
-              <Link href="/dashboard/listing" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Dashboard</Link>
+              <Link href="/dashboard/listing" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 
+              md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500
+               dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Dashboard</Link>
             </li>
             <li>
               <Link href="/listing" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Liste</Link>
             </li>
             <li>
-              <Link :href="`/listing/${user.id}/favorite`" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Merkblatt</Link>
+              <Link :href="`/listing/${user.id}/favorite`" 
+              class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
+              md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
+              md:dark:hover:bg-transparent">Merkblatt</Link>
             </li>
             <li>
               <Link href="/dashboard/listing/create" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Anzeige aufgeben</Link>
@@ -40,6 +48,7 @@
         </div>
       </div>
     </nav>
+    
     <slot></slot>
   </div>
 </template>
@@ -51,24 +60,6 @@ import { ref, computed, onBeforeUnmount } from "vue";
 const page = usePage();
 const user = computed(() => page.props.auth.user);
 
-const navbarOpen = ref(false);
 
-const toggleNavbar = () => {
-  navbarOpen.value = !navbarOpen.value;
-};
-
-const handleOutsideClick = (event) => {
-  if (!event.target.closest("#navbar-default")) {
-    navbarOpen.value = false;
-  }
-};
-
-// Event listener to close navbar when clicking outside
-window.addEventListener("click", handleOutsideClick);
-
-// Remove event listener on component unmount
-onBeforeUnmount(() => {
-  window.removeEventListener("click", handleOutsideClick);
-});
 </script>
 
