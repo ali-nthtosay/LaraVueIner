@@ -2,7 +2,35 @@
 
 
 <main-layout-page></main-layout-page>
-<form class="max-w-md mx-auto mt-7" @submit.prevent="form.post(route('realtor.listing.store'))">
+
+<div class="flex justify-center mt-10">
+        <div
+            v-if="sentMessage"
+            id="toast-simple"
+            class="flex w-full max-w-xs p-4 space-x-4 rtl:space-x-reverse text-gray-500 bg-white divide-x rtl:divide-x-reverse divide-gray-200 rounded-lg shadow dark:text-gray-400 dark:divide-gray-700 space-x dark:bg-gray-800"
+            role="alert"
+        >
+            <svg
+                class="w-5 h-5 text-blue-600 dark:text-blue-500 rotate-45"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 20"
+            >
+                <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m9 17 8 2L9 1 1 19l8-2Zm0 0V9"
+                />
+            </svg>
+            <div class="ps-4 text-sm font-normal">
+                Anzeige wurde erfolgreich erstellt
+            </div>
+        </div>
+    </div>
+<form class="max-w-md mx-auto mt-7" @submit.prevent="submitForm">
 
   <div class="grid md:grid-cols-2 md:gap-6">
     <div class="relative z-0 w-full mb-5 group">
@@ -89,7 +117,11 @@ class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:
 </template>
 
 <script setup>
-import Toast from 'primevue/toast';
+
+import axios from "axios";
+import { ref } from "vue";
+const sentMessage = ref(false);
+const errorMessage = ref(false);
 
 import MainLayoutPage from "../../Layouts/MainLayoutPage.vue";
 import { useForm } from "@inertiajs/vue3";
@@ -97,7 +129,7 @@ const form = useForm({
     zimmer: null,
     badezimmer: null,
     wohnflaeche: null,
-    stadt: null,
+    stadt: null,  
     strasse: null,
     plz: null,
     street_nr: null,
@@ -105,6 +137,25 @@ const form = useForm({
     hausnummer: null,
     wohnungstype: null,
 });
-const create = () => form.post(route('realtor.listing.store'))
+const create = () => form.post(route('dashboard.listing.store'), {
+  
+})
+const submitForm = async () => {
+    try {
+      await axios.post('dashboard.listing.store')
+      sentMessage.value = true; // Set sentMessage to true after successful submission
+        setTimeout(() => {
+            sentMessage.value = false; // Reset sentMessage to false after 3 seconds
+        }, 3000);
+      // form.post(route('dashboard.listing.store'));
 
+
+    } catch (error) {
+        console.error("Error submitting comment:", error);
+        errorMessage.value = true; // Set sentMessage to true after successful submission
+        setTimeout(() => {
+            errorMessage.value = false; // Reset sentMessage to false after 3 seconds
+        }, 3000);
+    }
+};
 </script>

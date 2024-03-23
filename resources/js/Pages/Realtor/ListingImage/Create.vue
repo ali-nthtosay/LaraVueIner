@@ -1,6 +1,6 @@
 <template>
   <Box>
-    <template #header>Upload New Images</template>
+    <template #header>Laden Sie neue Bilder hoch</template>
     <form @submit.prevent="upload">
       <section class="flex items-center gap-2 my-4">
         <input
@@ -12,13 +12,13 @@
           class="btn-outline disabled:opacity-25 disabled:cursor-not-allowed"
           :disabled="!canUpload"
         >
-          Upload
+          Hochladen
         </button>
         <button
           type="reset" class="btn-outline"
           @click="reset"
         >
-          Reset
+          Zurücksetzen
         </button>
       </section>
       <div v-if="imageErrors.length" class="input-error">
@@ -37,12 +37,12 @@
       >
         <img :src="image.src" class="rounded-md" />
         <Link 
-          :href="route('realtor.listing.image.destroy', { listing: props.listing.id, image: image.id })"
+          :href="route('dashboard.listing.image.destroy', { listing: props.listing.id, image: image.id })"
           method="delete"
           as="button"
           class="mt-2 btn-outline text-xs"
         >
-          Delete
+          Löschen
         </Link>
       </div>
     </section>
@@ -72,7 +72,7 @@ const imageErrors = computed(() => Object.values(form.errors))
 const canUpload = computed(() => form.images.length)
 const upload = () => {
   form.post(
-    route('realtor.listing.image.store', { listing: props.listing.id }),
+    route('dashboard.listing.image.store', { listing: props.listing.id }),
     {
       onSuccess: () => form.reset('images'),
     },

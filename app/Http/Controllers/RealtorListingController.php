@@ -63,7 +63,7 @@ class RealtorListingController extends Controller
     
         $user->listings()->save($listing);
     
-        return redirect()->route('realtor.listing.index')
+        return redirect()->route('dashboard.listing.index')
                          ->with('success', 'Listing was created!');
     }
 
@@ -93,7 +93,7 @@ class RealtorListingController extends Controller
             ])
         );
 
-        return redirect()->route('realtor.listing.index')
+        return redirect()->route('dashboard.listing.index')
             ->with('success', 'Listing was changed!');
     }
 

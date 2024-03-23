@@ -24,21 +24,22 @@
             class="btn-outline text-xs font-medium" 
             :href="route('listing.show', { listing: listing.id })"
             target="_blank"
-          >Preview</a>
-          <Link class="btn-outline text-xs font-medium" :href="route('realtor.listing.edit', { listing: listing.id })">Edit</Link>
+          >Vorschau</a>
+          <Link class="btn-outline text-xs font-medium" 
+          :href="route('dashboard.listing.edit', { listing: listing.id })">Bearbeiten</Link>
 
             <Link
               v-if="!listing.deleted_at"
               class="btn-outline text-xs font-medium"
-              :href="route('realtor.listing.destroy', { listing: listing.id })"
+              :href="route('dashboard.listing.destroy', { listing: listing.id })"
               as="button" method="delete"
             >
-              Delete
+              Löschen
             </Link>
 
             <Link
               v-else class="btn-outline text-xs font-medium"
-              :href="route('realtor.listing.restore', { listing: listing.id })"
+              :href="route('dashboard.listing.restore', { listing: listing.id })"
               as="button" method="put"
             >
               Restore
@@ -47,10 +48,10 @@
 
           <div class="mt-2">
             <Link 
-              :href="route('realtor.listing.image.create', { listing: listing.id })" 
+              :href="route('dashboard.listing.image.create', { listing: listing.id })" 
               class="block w-full btn-outline text-xs font-medium text-center"
             >
-              Images ({{ listing.images_count }})
+              Bilder ({{ listing.images_count }})
             </Link>
           </div>
         </section>

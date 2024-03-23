@@ -1,6 +1,6 @@
 <template>
 <MainLayoutPage></MainLayoutPage>
-<form class="max-w-md mx-auto mt-7" @submit.prevent="form.post(route('realtor.listing.store'))">
+<form class="max-w-md mx-auto mt-7" @submit.prevent="form.post(route('dashboard.listing.store'))">
 
 <div class="grid md:grid-cols-2 md:gap-6">
   <div class="relative z-0 w-full mb-5 group">
@@ -99,7 +99,7 @@ import MainLayoutPage from '../../Layouts/MainLayoutPage.vue';
   })
   // const update = () => form.put(`/listing/${props.listing.id}`)
    const update = () => form.put(
-  route('realtor.listing.update', { listing: props.listing.id }))
+  route('dashboard.listing.update', { listing: props.listing.id }))
 // const update = () => form.put(`/listing/${props.listing.id}`)
 
 </script>

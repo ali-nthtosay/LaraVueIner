@@ -11,8 +11,8 @@
         </div>
         <div>
         <select v-model="filterForm.by" class="input-filter-l w-24">
-          <option value="created_at">Added</option>
-          <option value="preis">preis</option>
+          <option value="created_at">Datum</option>
+          <option value="preis">Preis</option>
         </select>
         <select v-model="filterForm.order" class="input-filter-r w-32">
           <option
@@ -35,21 +35,21 @@
   const sortLabels = {
   created_at: [
     {
-      label: 'Latest',
+      label: 'Zuletzt',
       value: 'desc',
     },
     {
-      label: 'Oldest',
+      label: 'Älteste',
       value: 'asc',
     },
   ], 
   preis: [
     {
-      label: 'Pricey',
+      label: 'Teureste',
       value: 'desc',
     },
     {
-      label: 'Cheapest',
+      label: 'Billigste',
       value: 'asc',
     },
   ],
@@ -66,7 +66,7 @@ const props = defineProps({
   // reactive / ref / computed
   watch(
     filterForm, debounce(() => router.get(
-      '/realtor/listing',
+      '/dashboard/listing',
       filterForm,
       { preserveState: true, preserveScroll: true },
   ), 1000),
