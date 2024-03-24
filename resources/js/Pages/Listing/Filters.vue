@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="filter">
-      <div class="mb-8 mt-4 flex flex-wrap gap-2">
+      <div class="mb-8 mt-4 flex justify-center gap-2">
         <div class="flex flex-nowrap items-center">
           <input
           v-model.number="filterForm.preisVon"

@@ -16,8 +16,13 @@ class UserAccountController extends Controller
         $user = User::make($request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:8|confirmed'
-        ]));
+            'password' => [
+                'required',
+                'confirmed',
+                'min:8',
+                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/',
+            ],
+                    ]));
         $user->password = Hash::make($user->password);
         $user->save();
         // Auth::login($user);

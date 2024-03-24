@@ -3,7 +3,7 @@
    <template>
 <nav class="bg-white border-gray-200 dark:bg-gray-900 mb-5">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <a href="/dashboard/listing" class="flex items-center space-x-3 rtl:space-x-reverse">
+    <a href="/realtor/listing" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Logo" />
         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
     </a>
@@ -51,15 +51,26 @@
       <input v-model="form.email" type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
       <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500
        dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto
-        peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
+        peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 
+        peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
+        <p v-if="isEmailErrorVisible" class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops!</span>Die E-Mail-Adresse ist ungültig.</p>
+
   </div>
   <div class="relative z-0 w-full mb-5 group">
       <input v-model="form.password" type="password" name="floating_password" id="floating_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-      <label for="floating_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+      <label for="floating_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 
+      duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4
+       peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100
+        peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Passwort</label>
+        <p v-if="isPasswordErrorVisible  " class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops!</span>Das Passwort muss einen Kleinbuchstaben, einen Großbuchstaben, ein Sonderzeichen und eine Zahl enthalten.</p>
+
   </div>
   <div class="relative z-0 w-full mb-5 group">
       <input v-model="form.password_confirmation" type="password" name="repeat_password" id="floating_repeat_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-      <label for="floating_repeat_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm password</label>
+      <label for="floating_repeat_password" class="peer-focus:font-medium absolute text-sm
+       text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 
+       -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500
+        peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Passwort wiederholen</label>
   </div>
 
   <div class="flex items-start mb-5">
@@ -86,12 +97,35 @@
 
 <script setup>
 import { useForm, Link } from '@inertiajs/inertia-vue3'
+import { ref } from 'vue';
 const form = useForm({
   name: null,
   email: null,
   password: null,
   password_confirmation: null,
 })
-const register = () => form.post('/user-account', 
-)
+
+let isPasswordErrorVisible = ref(false)
+let isEmailErrorVisible = ref(false)
+
+const isPasswordValid = (password) => {
+  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  return regex.test(password);
+}
+const isValidEmail = (email) => {
+  // Regular expression to validate email format
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+const register = () => {
+  if(!isValidEmail(form.email)) {
+    isEmailErrorVisible = true;
+  }
+
+  else if(!isPasswordValid(form.password)){
+    isPasswordErrorVisible = true;
+    return ;
+  }
+  form.post('/user-account')
+}
 </script>
