@@ -47,7 +47,7 @@
     <Pagination :links="listings.links" />
 </div>
   </div>
-<Footer></Footer>
+  <Footer  class="fixed bottom-0 w-full"></Footer>
 </template>
 
 <script setup>

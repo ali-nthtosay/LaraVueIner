@@ -30,7 +30,7 @@
             </div>
         </div>
     </div>
-<form class="max-w-md mx-auto mt-7" @submit.prevent="submitForm">
+<form class="max-w-md mx-auto mt-7" @submit.prevent="create">
 
   <div class="grid md:grid-cols-2 md:gap-6">
     <div class="relative z-0 w-full mb-5 group">
@@ -137,25 +137,5 @@ const form = useForm({
     hausnummer: null,
     wohnungstype: null,
 });
-const create = () => form.post(route('dashboard.listing.store'), {
-  
-})
-const submitForm = async () => {
-    try {
-      await axios.post('dashboard.listing.store')
-      sentMessage.value = true; // Set sentMessage to true after successful submission
-        setTimeout(() => {
-            sentMessage.value = false; // Reset sentMessage to false after 3 seconds
-        }, 3000);
-      // form.post(route('dashboard.listing.store'));
-
-
-    } catch (error) {
-        console.error("Error submitting comment:", error);
-        errorMessage.value = true; // Set sentMessage to true after successful submission
-        setTimeout(() => {
-            errorMessage.value = false; // Reset sentMessage to false after 3 seconds
-        }, 3000);
-    }
-};
+const create = () => form.post(route('dashboard.listing.store'));
 </script>

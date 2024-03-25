@@ -1,21 +1,23 @@
 <template>
     <MainLayoutPage></MainLayoutPage>
-    <Box v-if="listings.length">
+    <div v-if="listings.lengths" 
+   class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 overflow-x-hidden">
 
-        <div   v-for="listing in listings" :key="listing.id" :listing="listing"
-        class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"
-        >
+    <div v-for="listing in listings" :key="listing.id" :listing="listing"
+     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 box overflow-x-hidden mx-5">
 
-        <div >
-            <Link :href="`/listing/${listing.id}`">
-                <div class="flex items-center gap-1">
-                    <Preis :preis="listing.preis" class="text-2xl font-bold" />
-                </div>
-            </Link>
+        <div v-if="listing.images > 0" class="flex flex-column">
+        <img class="rounded-t-lg w-full h-48 object-cover" :src="listing.images[0].src" alt="Image" />
+        </div>
+        <div v-else>
+            <img class="rounded-t-lg w-full h-48 object-cover " src="../../Components/Images/no-image.jpg" alt="Image" />
+        </div>
 
-            <ListingSpace :listing="listing" class="text-lg" />
-            <ListingAddress :listing="listing" class="text-gray-500" />
-            <div v-if="user.id !== listing.by_user_id" class="mr-2">
+        <div class="p-5">
+            <Preis :preis="listing.preis" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" />
+      <ListingAddress :listing="listing" class="mb-3 font-normal text-gray-700 dark:text-gray-400" />
+        <ListingSpace :listing="listing" class="mb-3 font-normal text-gray-400 dark:text-gray-300" />
+        <div v-if="user.id !== listing.by_user_id" class="mr-2">
                 <div>
                     <Button @click="toggleLike(listing.id)">
                         <Icon
@@ -24,17 +26,15 @@
                     </Button>
                 </div>
             </div>
-        </div>
- 
 
+    </div>
+</div>
+  </div>
 
-        </div>
-        
-    </Box>
-    <Box v-else>
-        <div>No fav</div>
-    </Box>
-    <Footer></Footer>
+    <div v-else class="flex justify-center ">
+        <div>Keine Lieblingst Anzeige</div>
+    </div>
+    <Footer  class="fixed bottom-0 w-full"></Footer>
   </template>
   
   <script setup>
