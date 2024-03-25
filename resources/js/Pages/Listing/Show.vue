@@ -66,6 +66,7 @@
 
             <Box>
                 <div>Weitere Informationen</div>
+           
                 <div>
                     
                 </div>

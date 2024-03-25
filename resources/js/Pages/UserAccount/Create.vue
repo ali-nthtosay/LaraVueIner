@@ -104,28 +104,6 @@ const form = useForm({
   password: null,
   password_confirmation: null,
 })
+const register = () => form.post(route('user-account.store'));
 
-let isPasswordErrorVisible = ref(false)
-let isEmailErrorVisible = ref(false)
-
-const isPasswordValid = (password) => {
-  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-  return regex.test(password);
-}
-const isValidEmail = (email) => {
-  // Regular expression to validate email format
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return regex.test(email);
-}
-const register = () => {
-  if(!isValidEmail(form.email)) {
-    isEmailErrorVisible = true;
-  }
-
-  else if(!isPasswordValid(form.password)){
-    isPasswordErrorVisible = true;
-    return ;
-  }
-  form.post('/user-account')
-}
 </script>

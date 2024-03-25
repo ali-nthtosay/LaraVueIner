@@ -1,6 +1,6 @@
 <template>
     <MainLayoutPage></MainLayoutPage>
-    <div v-if="listings.lengths" 
+    <div v-if="listings.length" 
    class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 overflow-x-hidden">
 
     <div v-for="listing in listings" :key="listing.id" :listing="listing"
@@ -49,7 +49,7 @@ import { ref, computed } from "vue";
 
   import MainLayoutPage from '../../Layouts/MainLayoutPage.vue';
   defineProps({
-    listings: Object,
+    listings: Array,
   
   })
   const page = usePage();

@@ -12,10 +12,10 @@ class FavoriteController extends Controller
     public function __construct(){
         $this->authorizeResource(Listing::class, 'listing');
    }
-    public function index(Listing $listing){
+    public function index(){
         
         $lists = auth()->user()->favorite;
-
+        // dd($lists);
         return inertia('Favorite/Index', [
             'listings' => $lists , 
             
