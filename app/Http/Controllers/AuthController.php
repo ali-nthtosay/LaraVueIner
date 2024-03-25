@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -15,7 +17,8 @@ class AuthController extends Controller
 
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         if (!Auth::attempt($request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string'
@@ -29,7 +32,6 @@ class AuthController extends Controller
 
         return redirect()->intended('/listing');
     }
-
     public function destroy(Request $request){
         Auth::logout();
         $request->session()->invalidate();
@@ -38,3 +40,19 @@ class AuthController extends Controller
         return redirect()->route('listing.index');
     }
 }
+
+
+// public function store(Request $request){
+//     if (!Auth::attempt($request->validate([
+//         'email' => 'required|string|email',
+//         'password' => 'required|string'
+//     ]), true)) {
+//         throw ValidationException::withMessages([
+//             'email' => 'Authentication failed'
+//         ]);
+//     }
+
+//     $request->session()->regenerate();
+
+//     return redirect()->intended('/listing');
+// }
