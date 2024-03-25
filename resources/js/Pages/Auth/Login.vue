@@ -77,6 +77,8 @@
    -->
 
    <template>
+        <NavBar :isListingPage="true"></NavBar>
+
     <form class="max-w-md mx-auto my-auto" @submit.prevent="form.post(route('login.store'))">
       
       <div class="relative z-0 w-full mb-5 group">
@@ -141,7 +143,8 @@
   
   <script setup>
   import { useForm, Link } from '@inertiajs/inertia-vue3'
-  
+  import NavBar from "../../Layouts/NavBar.vue";
+
   const form = useForm({
     email: null,
     password: null,
