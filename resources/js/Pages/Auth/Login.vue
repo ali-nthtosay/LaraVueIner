@@ -140,6 +140,8 @@
 </template>
 
 <script setup>
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
 import { useForm, Link } from "@inertiajs/inertia-vue3";
 import NavBar from "../../Layouts/NavBar.vue";
 import { router } from "@inertiajs/vue3";
@@ -152,6 +154,14 @@ const form = reactive({
 });
 
 function login() {
-    router.post("/login", form);
+    router.post("/login", form, {
+        onSuccess: (e) => {
+            toast.success("Login Succesfull");
+            console.log("login succ", e);
+        },
+        onError: (err) => {
+            toast.error(err?.email);
+        },
+    });
 }
 </script>

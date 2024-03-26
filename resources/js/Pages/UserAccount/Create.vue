@@ -200,6 +200,7 @@
 import { useForm, Link } from "@inertiajs/inertia-vue3";
 import { router } from "@inertiajs/vue3";
 import { ref } from "vue";
+import { toast } from "vue3-toastify";
 const form = useForm({
     name: null,
     email: null,
@@ -223,11 +224,22 @@ const isValidEmail = (email) => {
 const register = () => {
     if (!isValidEmail(form.email)) {
         isEmailErrorVisible = true;
+        toast.error("email not valid");
     } else if (!isPasswordValid(form.password)) {
+        toast.error("Password is not acceptable");
+
         isPasswordErrorVisible = true;
         return;
     }
 
-    router.post("/user-account/create", form);
+    router.post("/user-account/create", form, {
+        onSuccess: (e) => {
+            toast.success("User Created and Logged in Succesfull");
+        },
+        onError: (err) => {
+            console.log("err", err);
+            toast.error(err?.email);
+        },
+    });
 };
 </script>
