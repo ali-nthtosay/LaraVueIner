@@ -237,8 +237,7 @@ const register = () => {
             toast.success("User Created and Logged in Succesfull");
         },
         onError: (err) => {
-            console.log("err", err);
-            toast.error(err?.email);
+            Object.values(err).map((er) => toast.error(er));
         },
     });
 };
