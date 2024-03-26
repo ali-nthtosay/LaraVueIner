@@ -20,14 +20,13 @@ class UserAccountController extends Controller
             $request->validate([
                 'name' => 'required',
                 'email' => 'required|email|unique:users',
-                'password' => 'required|confirmed|min:8',
-                // 'password' => 'required|confirmed|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/',
+                'password' => 'required|confirmed|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/',
             ]);
             
             $data = [
-                "password" => $request->password,
                 "email" => $request->email,
                 "name" => $request->name,
+                "password" => $request->password,
             ];
  
 
