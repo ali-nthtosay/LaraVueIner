@@ -36,7 +36,6 @@ class AuthController extends Controller
     
         $request->session()->regenerate();
     
-        // Redirect the user to the desired page after successful authentication
         return redirect('/listing');
     }
     
@@ -49,19 +48,3 @@ class AuthController extends Controller
         return redirect()->route('listing.index');
     }
 }
-
-
-// public function store(Request $request){
-//     if (!Auth::attempt($request->validate([
-//         'email' => 'required|string|email',
-//         'password' => 'required|string'
-//     ]), true)) {
-//         throw ValidationException::withMessages([
-//             'email' => 'Authentication failed'
-//         ]);
-//     }
-
-//     $request->session()->regenerate();
-
-//     return redirect()->intended('/listing');
-// }

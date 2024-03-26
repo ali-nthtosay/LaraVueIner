@@ -17,17 +17,21 @@ class UserAccountController extends Controller
     public function store(Request $request)
     {
         try {
-            $validatedData = $request->validate([
+            $request->validate([
                 'name' => 'required',
                 'email' => 'required|email|unique:users',
                 'password' => 'required|confirmed|min:8',
                 // 'password' => 'required|confirmed|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/',
             ]);
             
-            // Hash the password before creating the user
-            $validatedData['password'] = Hash::make($validatedData['password']);
-            
-            $user = User::create($validatedData);
+            $data = [
+                "password" => $request->password,
+                "email" => $request->email,
+                "name" => $request->name,
+            ];
+ 
+
+            $user = User::create($data);
 
             // Log in the user after creating their account
             Auth::login($user);

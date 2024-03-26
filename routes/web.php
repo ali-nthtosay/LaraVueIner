@@ -36,7 +36,7 @@ Route::post('login', [AuthController::class, 'store'])->name('login.store');
 Route::delete('logout', [AuthController::class, 'destroy'])->name('logout');
 
 Route::get('user-account',[UserAccountController::class, 'create'])->name('register');
-Route::post('user-account/create',[UserAccountController::class, 'store'])->name('registerUserCreate');
+Route::post('user-account/create',[UserAccountController::class, 'store']);
 
 Route::prefix('dashboard')
    ->name('dashboard.')
