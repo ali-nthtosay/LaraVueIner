@@ -24,19 +24,20 @@ class AuthController extends Controller
             'email' => 'required|string|email',
             'password' => 'required|string'
         ]);
-
+    
         $email = $credentials['email'];
         $password = $credentials['password'];
-
-        if (Auth::attempt(['email' => $email, 'password' => $password], true)) {
+    
+        if (!Auth::attempt(['email' => $email, 'password' => $password])) {
             throw ValidationException::withMessages([
                 'email' => 'Authentication failed'
             ]);
         }
-
+    
         $request->session()->regenerate();
-
-        return redirect()->intended('/listing');
+    
+        // Redirect the user to the desired page after successful authentication
+        return redirect('/listing');
     }
     
     public function destroy(Request $request)
