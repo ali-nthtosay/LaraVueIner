@@ -24,7 +24,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/',[IndexController::class,'index']);
+Route::get('/',[IndexController::class,'index'])->middleware('auth');
 
 Route::get('/show',[IndexController::class, 'show'])->middleware('auth');
 

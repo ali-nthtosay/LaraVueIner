@@ -7,6 +7,8 @@ import Toaster from "@meforma/vue-toaster";
 import PrimeVue from 'primevue/config';
 import 'primevue/resources/themes/lara-light-green/theme.css'
 import ToastService from 'primevue/toastservice';
+import Toast, { POSITION }  from "vue-toastification";
+import "vue-toastification/dist/index.css";
 
 
 InertiaProgress.init({
@@ -28,6 +30,7 @@ createInertiaApp({
     .use(PrimeVue, { unstyled: true, 
     
     })
+    .use(Toast, { timeout: 50000  ,     position: POSITION.TOP   })
 
       .use(plugin)
       .mount(el)

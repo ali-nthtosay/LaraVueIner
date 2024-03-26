@@ -122,7 +122,8 @@ import axios from "axios";
 import { ref } from "vue";
 const sentMessage = ref(false);
 const errorMessage = ref(false);
-
+import { useToast } from "vue-toastification";
+    const toast = useToast();
 import MainLayoutPage from "../../Layouts/MainLayoutPage.vue";
 import { useForm } from "@inertiajs/vue3";
 const form = useForm({
@@ -137,5 +138,8 @@ const form = useForm({
     hausnummer: null,
     wohnungstype: null,
 });
-const create = () => form.post(route('dashboard.listing.store'));
+const create = () => {
+    toast.success("Anzeige wurde erfoglreich erstellt", {timeout: false});
+
+    form.post(route('dashboard.listing.store'));}
 </script>

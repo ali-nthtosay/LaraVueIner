@@ -2,7 +2,7 @@
    <template>
         <NavBar :isListingPage="true"></NavBar>
 
-    <form class="max-w-md mx-auto my-auto" @submit.prevent="form.post(route('login.store'))">
+    <form class="max-w-md mx-auto my-auto" @submit.prevent="login">
       
       <div class="relative z-0 w-full mb-5 group">
         <input
@@ -65,11 +65,18 @@
   </template>
   
   <script setup>
+    import { useToast } from "vue-toastification";
+    const toast = useToast();
   import { useForm, Link } from '@inertiajs/inertia-vue3'
   import NavBar from "../../Layouts/NavBar.vue";
+ 
 
   const form = useForm({
     email: null,
     password: null,
   })
+  const login = () =>{
+    toast.success("Anmeldung war erfoglreich", {timeout: false});
+    form.post(route('login.store'));
+  }
   </script>
