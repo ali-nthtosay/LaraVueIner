@@ -79,7 +79,7 @@
    <template>
         <NavBar :isListingPage="true"></NavBar>
 
-    <form class="max-w-md mx-auto my-auto" @submit.prevent="form.post(route('login.store'))">
+    <form class="max-w-md mx-auto my-auto" @submit.prevent="login">
       
       <div class="relative z-0 w-full mb-5 group">
         <input
@@ -131,7 +131,7 @@
           >
             Nicht Registriert ?
             <a
-              href="/user-account/create"
+              href="/user-account"
               class="font-medium text-blue-600 hover:underline dark:text-blue-500"
               >Registrieren</a
             >.
@@ -149,5 +149,6 @@
     email: null,
     password: null,
   })
+  
   const login = () => form.post(route('login.store'))
   </script>

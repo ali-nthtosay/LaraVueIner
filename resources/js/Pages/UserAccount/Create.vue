@@ -118,14 +118,13 @@ const isValidEmail = (email) => {
   return regex.test(email);
 }
 const register = () => {
+  console.log("Register function called");
   if(!isValidEmail(form.email)) {
     isEmailErrorVisible = true;
-  }
-
-  else if(!isPasswordValid(form.password)){
+  }else if(!isPasswordValid(form.password)){
     isPasswordErrorVisible = true;
     return ;
   }
-  form.post('/user-account')
+  form.post('/user-account/create')
 }
 </script>
