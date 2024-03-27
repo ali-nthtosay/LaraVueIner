@@ -27,3 +27,5 @@ describe("Login", () => {
         await wrapper.find('button[type="submit"]').trigger("click");
     });
 });
+
+// The Login test suite aims to verify the functionality of the Login component (LoginComp). The suite begins by mounting the LoginComp using the mount function from @vue/test-utils. The first test case ensures that the Login component renders correctly by checking its existence within the wrapper. Subsequently, the test suite examines the behavior of the email and password fields, simulating user input and validating that the fields update appropriately. This includes setting values for the email and password inputs and asserting that the values are reflected correctly within the component. Finally, the test suite evaluates the interaction of the login form submission, triggering a click event on the submit button and verifying that the login method is called as expected. By encompassing these tests, the suite ensures the Login component operates as intended, handling user input and form submission accurately.
