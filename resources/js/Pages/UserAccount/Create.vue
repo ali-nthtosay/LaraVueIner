@@ -201,6 +201,7 @@ import { useForm, Link } from "@inertiajs/inertia-vue3";
 import { router } from "@inertiajs/vue3";
 import { ref } from "vue";
 import { toast } from "vue3-toastify";
+import { isPasswordValid, isValidEmail } from "../../utilities";
 const form = useForm({
     name: null,
     email: null,
@@ -211,16 +212,6 @@ const form = useForm({
 let isPasswordErrorVisible = ref(false);
 let isEmailErrorVisible = ref(false);
 
-const isPasswordValid = (password) => {
-    const regex =
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    return regex.test(password);
-};
-const isValidEmail = (email) => {
-    // Regular expression to validate email format
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-};
 const register = () => {
     if (!isValidEmail(form.email)) {
         isEmailErrorVisible = true;
